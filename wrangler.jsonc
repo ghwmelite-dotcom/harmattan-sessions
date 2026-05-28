@@ -4,9 +4,18 @@
   "compatibility_flags": ["nodejs_compat"],
   "pages_build_output_dir": "./dist",
   "d1_databases": [
-    { "binding": "DB", "database_name": "harmattan_sessions", "database_id": "PLACEHOLDER_SET_AFTER_d1_create" }
+    {
+      "binding": "DB",
+      "database_name": "harmattan_sessions",
+      // OWNER: replace with real id after `wrangler d1 create harmattan_sessions`
+      "database_id": "00000000-0000-0000-0000-000000000000"
+    }
   ],
   "kv_namespaces": [
-    { "binding": "RL", "id": "PLACEHOLDER_SET_AFTER_kv_create" }
+    {
+      "binding": "RL",
+      // OWNER: replace with real id after `wrangler kv namespace create RL`
+      "id": "00000000000000000000000000000000"
+    }
   ]
 }
