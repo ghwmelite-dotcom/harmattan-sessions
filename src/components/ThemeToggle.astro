@@ -1,0 +1,23 @@
+---
+// Renders the sun/moon toggle button. Behaviour wired client-side.
+---
+<button class="tgl" id="hs-theme-toggle" type="button" aria-label="Toggle light or dark mode" aria-pressed="false"></button>
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('hs-theme-toggle')!;
+  const sun = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" stroke-linecap="round"/></svg>';
+  const moon = '<svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke-linejoin="round"/></svg>';
+  function paint() {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = dark ? moon : sun;
+    btn.setAttribute('aria-pressed', String(!dark));
+  }
+  btn.addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    const next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('hs-theme', next); } catch (e) {}
+    paint();
+  });
+  paint();
+</script>
