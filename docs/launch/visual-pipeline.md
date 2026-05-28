@@ -44,42 +44,48 @@ All eight scenes share:
 
 ## Production pipeline (three tracks, by ambition)
 
-### Track A — Minimum viable (FRIDAY SOFT-LAUNCH ready)
+### Track A — Recommended (FRIDAY SOFT-LAUNCH ready) — Ideogram still + Ken Burns
 
-You already have what you need:
+**Stack:** Ideogram 3.0 → CapCut.
 
-- `public/visuals/afro-lofi-scene.svg` — the Osu rooftop dusk scene, ready
-- Rasterized PNG at 1920×1080 (committed in same folder)
-- CapCut / DaVinci on your machine
-- Suno audio for the mix
+1. In Ideogram, paste the matching prompt from §"Ideogram 3.0 still prompt pack" below (Afro-Lofi for the soft launch).
+2. Settings (do this once, save as preset):
+   - **Aspect Ratio: 16:9**
+   - **Style Type: Anime** (or **Illustration** if Anime tips too saturated)
+   - **Magic Prompt: OFF** (we want our exact prompt, no auto-expansion)
+   - **Model: 3.0**
+   - **Rendering: Quality** (paid plans only — worth it)
+3. Generate at least 2 batches = 8 variations. Download the strongest at native 1920×1080 PNG.
+4. In CapCut:
+   - Import the PNG, stretch duration to your mix length
+   - **Animation → Slow Zoom In** (Ken Burns) 1.0× → 1.08× over full duration
+   - **Effect → Light → "Light Leaks"** 15–25% intensity
+   - **Effect → Particle → "Dust"** 10–20% (sells the harmattan haze)
+5. **Audio:** Suno track on A1 (or arranged multi-track with 3–5s crossfades); **field-recording WAV** (Labadi waves / Aburi wind) on A2 at **−25 dB** — Law 2 is non-negotiable.
+6. **Sun Vinyl watermark** (`public/youtube/watermark-150.png`) bottom-right, 40% opacity.
+7. **Title card** at start: e.g. "3 Hours of Afro-Lofi · Labadi Sunset" in Fraunces 96pt gold, 4-sec fade in + 4-sec fade out.
+8. **Export** at 1080p / 30fps / H.264 / 8–12 Mbps.
 
-**Steps (≈ 15 minutes total):**
+Total time: ~30 minutes from Ideogram prompt to YouTube-ready video. Monetization-ready ✅ (motion visuals, field-recording, AI disclosure-ready). **Real painterly aesthetic, not SVG illustration.**
 
-1. In CapCut, **Import** the PNG.
-2. Drag onto timeline. Stretch its duration to match your mix audio (e.g. drag right edge to fill 30 min / 1 hr / 3 hr).
-3. Apply effects:
-   - **Animation → Slow Zoom In** (Ken Burns) — 0.5× to 1.05× over the full duration (very subtle).
-   - **Effect → Light → "Light Leaks"** (soft warm overlay) at 15–25% intensity.
-   - **Effect → Particle → "Dust" or "Embers"** at 10–20% intensity (sells the harmattan haze).
-4. Drag the **Suno audio** onto the audio track. Trim to length.
-5. (Optional, recommended) Layer the **field-recording WAV** (Labadi waves / Aburi wind) on a second audio track at **−25 dB** under the music. This is Law 2 — non-negotiable.
-6. Add a small **Sun Vinyl PNG** in the bottom-right corner (use `public/youtube/watermark-150.png`), 40% opacity.
-7. Add the **title text** at the start: e.g. "3 Hours of Afro-Lofi · Labadi Sunset" in **Fraunces** 96pt, gold, fades in/out over 4 sec.
-8. **Export** at **1080p, 30fps, H.264, 8–12 Mbps**.
+> The committed `public/visuals/afro-lofi-scene.svg` remains as a stop-gap fallback if Ideogram is unavailable. The Ideogram path is the recommended Track A — tenfold visual upgrade for ~30 minutes of work.
 
-That's a monetization-ready video per `SKILL.md` → Fast-Monetization Bar: motion visuals ✅, field-recording layer ✅, brand-consistent thumbnail (to be made — see below) ✅.
+### Track B — V2 (within 1–2 weeks of soft-launch) — Ideogram still + Veo image-to-video
 
-### Track B — V2 (within 1–2 weeks of soft-launch)
+**Stack:** Ideogram 3.0 → Veo 3.1 Lite (**image-to-video** mode) → CapCut.
 
-Replace the Ken-Burns still with a real animated loop from **Veo 3.1 Lite**.
+The Ideogram still from Track A becomes the **seed image** for Veo's image-to-video mode. This locks the painterly Ideogram style into the animation — you get a 5–10 sec loop that **maintains the exact look** of the still (vs Veo text-to-video, which would interpret each scene independently and break brand consistency across the catalog).
 
-1. Use the Veo prompts in §"Veo prompt pack" below.
-2. Generate a **5–10 second loop** per sound. Veo outputs MP4.
-3. In CapCut, drop the loop in, **Loop / Repeat** it to mix length (or Ctrl+D duplicate-stretch).
-4. Apply a **3–5 second crossfade** between loop repeats so the seam is invisible.
-5. Everything else the same as Track A.
+1. Use the same Ideogram still from Track A as your seed image.
+2. In Veo 3.1 Lite, select **image-to-video** mode. Upload the PNG.
+3. Paste the matching motion prompt from §"Veo 3.1 Lite — image-to-video motion prompts" below — short, focused on what moves (the image carries everything else).
+4. Generate **3 variations** per scene. Pick the smoothest seamless loop. Veo outputs MP4 (typically 5–10 sec).
+5. In CapCut: drop the MP4, right-click → **Loop / Repeat** to reach mix length, **3–5 sec crossfade** between loop repeats so the seam is invisible.
+6. Everything else (audio, watermark, title card, export) is identical to Track A.
 
-You have **$300 Veo credit free**. Each generation is ~$0.50–$1. Eight scenes × 3 attempts (best of) = ~$12–$24 of credit. Massive runway.
+You have **$300 Veo credit**. Image-to-video runs are ~$1–$2 each (slightly more than text-to-video). 8 scenes × 3 attempts = ~$24–$48 of credit. Plenty of runway.
+
+> **Why image-to-video over text-to-video:** text-to-video gives Veo full creative latitude per scene → 8 different visual interpretations across the catalog → inconsistent brand. Image-to-video locks the Ideogram style across all 8 scenes → uniform identity. This is the right move for a channel.
 
 ### Track C — V3 (Month 3+, scaling)
 
@@ -137,6 +143,106 @@ A peaceful, sleep-inducing looping animation of a bedroom in Accra at 3 AM. A wi
 ```
 
 **Veo workflow tip:** generate **3 variations per prompt** at minimum. Pick the smoothest seamless loop. If none of the 3 are right, tweak ONE element (e.g., add "no people present", "remove camera drift", "warmer lighting") — don't rewrite. Save winners to `public/visuals/loops/<sound>-v1.mp4` (gitignored if too large — keep on cloud).
+
+---
+
+## Ideogram 3.0 still prompt pack — RECOMMENDED for stills
+
+Tuned for **Ideogram 3.0** with **Aspect Ratio 16:9**, **Style Type: Anime** (fall back to **Illustration** if Anime is too saturated), **Magic Prompt: OFF**, **Model: 3.0**, **Rendering: Quality**. Each generation yields 4 variations — 2 batches (8 variations) per scene minimum. Save winners to `public/visuals/stills/<sound>-v1.png`.
+
+### 1. Afro-Lofi · Osu Rooftop Sunset
+```
+A peaceful lofi anime illustration of a rooftop in Osu, Accra at golden hour. Wide cinematic composition looking out over the Atlantic Ocean. Two tall palm tree silhouettes frame the foreground left and right. The half-set sun glows warm gold on the horizon, casting a shimmering reflection on the gentle ocean. Distant Accra coastline lights twinkle softly. Subtle harmattan dust haze drifts across the scene. Warm dusk color palette: deep espresso brown, terracotta orange, harmattan gold, warm sand. Painterly Studio Ghibli atmosphere, soft brush strokes, romantic, nostalgic, atmospheric, cinematic. No people, no text, no watermark.
+```
+
+### 2. Highlife Chill · Palmwine Bar Interior
+```
+A warm intimate lofi anime illustration inside a vintage palmwine bar in Old Accra, Ghana. Golden hour light streams through an open doorway. Wooden bar counter in soft focus foreground, vintage palm-wine bottles in silhouette, a hanging vintage highlife record sleeve on the wall. Single warm tungsten bulb glows overhead. Faint candle on the bar with smoke curling slowly. Warm dusk color palette: espresso brown, terracotta orange, harmattan gold, warm wood tones. Painterly Studio Ghibli style, nostalgic vintage Ghanaian, atmospheric, cinematic. No people visible, no text, no watermark.
+```
+
+### 3. Amapiano Lounge · Accra Rooftop Terrace
+```
+A sophisticated lofi anime illustration of an empty rooftop terrace in Accra at blue hour. Tungsten string lights warmly glow across the foreground. A low modern sofa and a small table with a single drink in soft focus. The Accra cityscape spreads across the distant horizon in cool blue dusk. Faint city lights twinkle. Color palette: deep indigo, terracotta, harmattan gold, warm sand. Cool blue and warm gold contrast. Painterly Studio Ghibli style, sophisticated, atmospheric, cinematic. No people visible, no text, no watermark.
+```
+
+### 4. Afro-Soul Sunset · Tema Coastline Balcony
+```
+A romantic lofi anime illustration of a balcony overlooking the Tema coastline in Ghana at sunset. A sheer fabric curtain in the foreground billows softly in a warm breeze. Beyond it, the horizon glows rose-gold and the ocean is still and reflective. A single half-set sun. Soft focus, painterly, intimate mood. Warm dusk color palette: rose-gold, terracotta, harmattan gold, warm sand. Studio Ghibli atmosphere, romantic, nostalgic, cinematic. No people visible, no text, no watermark.
+```
+
+### 5. Afro-Jazz Lounge · Jamestown Smoky Bar
+```
+A smoky intimate lofi anime illustration of a jazz lounge interior in Jamestown, Accra, at night. A brass trumpet rests on a wooden chair in the foreground. A single hanging warm incandescent bulb pools light. Slow smoke from a candle curls in the air. A glass of pito on a table glows amber. Deep shadows. Warm dusk color palette: deep espresso brown, brass gold, terracotta accents, smoky amber. Painterly Studio Ghibli style, Mulatu Astatke album cover atmosphere, sophisticated, nostalgic, cinematic. No people visible, no text, no watermark.
+```
+
+### 6. Coastal Afro-House · Senya Beach at Dawn
+```
+A meditative lofi anime illustration of Senya Beach in Ghana at the first light of dawn. Wet sand in the foreground reflects the pale gold sky. A single small fishing boat in silhouette in the mid-frame. Gentle ocean swell rolls in slowly. Low mist hangs over the water. Faint pale gold light builds on the horizon. Cool dawn color palette with warm gold accent: deep teal blue, harmattan gold, terracotta horizon, soft cream. Painterly Studio Ghibli style, meditative, atmospheric, cinematic. No people visible, no text, no watermark.
+```
+
+### 7. Ancestral Ambient · Aburi Hills at Dusk
+```
+A reverent slow-breathing lofi anime illustration of the Aburi Hills in Ghana at dusk. Layered ridge silhouettes recede into mist. A single distant baobab tree silhouetted against the horizon. A faint orange ember of remaining sunlight on the highest ridge. Mist drifts slowly between the ridges. Very low contrast, muted painterly atmosphere. Color palette: muted ash gray, soft ember orange, harmattan gold accents, deep mist. Painterly Studio Ghibli style, Toumani Diabaté album cover atmosphere, contemplative, reverent, cinematic. No people visible, no text, no watermark.
+```
+
+### 8. Afrobeats Rain · Accra Bedroom Window 3 AM
+```
+A peaceful sleep-inducing lofi anime illustration of a bedroom in Accra at 3 AM. A window in the foreground with raindrops streaming down the glass. A bedside lamp glows warm and low. A kente patterned throw drapes across the bed in soft focus. Beyond the window, the city is barely visible through the rain — just a few warm distant lights. Cool blue rain and warm interior contrast. Color palette: warm interior amber and harmattan gold, cool blue exterior, deep espresso shadow. Painterly Studio Ghibli style, intimate, sleep-mix mood, nostalgic, cinematic. No people visible, no text, no watermark.
+```
+
+**Ideogram tips:**
+- Too saturated? Switch **Style Type** from **Anime** → **Illustration** and re-generate.
+- Too busy / over-detailed? Append `minimal, simple, atmospheric, lots of negative space` to the prompt.
+- **For brand consistency across all 8:** pick your strongest Afro-Lofi result, **upload it as a Style Reference** on the next 7 generations. Ideogram propagates the painterly aesthetic across the catalog — this is the single biggest lever for unified visual identity.
+- If Ideogram is rejecting "Studio Ghibli" as a brand-name reference, replace with `Hayao Miyazaki film aesthetic, painterly anime` or `Makoto Shinkai inspired painterly anime` — both produce the same look.
+
+---
+
+## Veo 3.1 Lite — image-to-video motion prompts (paired with Ideogram stills)
+
+These motion prompts are short. The **image** (your Ideogram still) carries composition, lighting, palette, and style. The **motion prompt** describes only **what moves and how**. Upload the Ideogram PNG to Veo's image-to-video mode and paste these.
+
+### 1. Afro-Lofi · Osu Rooftop Sunset (motion)
+```
+Subtle harmattan dust particles drift slowly left to right across the frame. Gentle ocean swell shimmers under the sunset reflection. Palm fronds sway gently in a warm evening breeze. Distant coastline lights twinkle softly. Locked-off camera, no pan or zoom. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 2. Highlife Chill · Palmwine Bar Interior (motion)
+```
+Slow candle flame flickers softly. Faint smoke curls upward and disperses. The hanging tungsten bulb sways almost imperceptibly. Warm golden light bleeds slightly stronger through the open doorway, then softens. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 3. Amapiano Lounge · Accra Rooftop Terrace (motion)
+```
+Tungsten string lights sway very gently in a soft evening breeze. Faint city lights twinkle in the distance. Subtle warm light bloom around the string lights. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 4. Afro-Soul Sunset · Tema Coastline Balcony (motion)
+```
+The sheer curtain in the foreground billows slowly and rhythmically in the warm breeze — soft, feminine, hypnotic motion. Faint sun shimmer on the still ocean beyond. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 5. Afro-Jazz Lounge · Jamestown Smoky Bar (motion)
+```
+Smoke from the candle curls slowly upward in elegant tendrils. The hanging incandescent bulb's light pulses very softly, barely noticeable. Faint glow shifts around the brass of the trumpet. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 6. Coastal Afro-House · Senya Beach at Dawn (motion)
+```
+Gentle ocean swell rolls in slowly toward the wet sand. Low mist drifts across the water from left to right. The fishing boat silhouette stays still. Faint warm dawn light gradually intensifies on the horizon. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 7. Ancestral Ambient · Aburi Hills at Dusk (motion)
+```
+Mist drifts very slowly between the ridges, left to right. The faint orange ember light on the highest ridge dims and brightens almost imperceptibly. The baobab silhouette stays still. Locked-off camera, no movement. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+### 8. Afrobeats Rain · Accra Bedroom Window 3 AM (motion)
+```
+Continuous gentle rain streams down the window glass. Raindrops accumulate, run, dissipate. The bedside lamp light flickers very softly. Distant city lights through the rain twinkle faintly. The kente throw stays still. Locked-off camera. Maintain exact painterly illustration style of the reference image, do not photorealize. Seamless 8-second loop.
+```
+
+**Veo image-to-video tip:** if a motion attempt breaks the visual style (the painterly look gets "smoothed out" into photorealism), reinforce with `do not change visual style, preserve illustration aesthetic, painterly` and cap **motion intensity at 5/10** in Veo's settings. Style preservation is more important than fancy motion — the audience watches a 3-hour mix, not a 5-sec showcase.
 
 ---
 
