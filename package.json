@@ -22,9 +22,11 @@
     "unenv": "^2.0.0-rc.24"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@cloudflare/vitest-pool-workers": "^0.16.10",
     "@cloudflare/workers-types": "^4.20260527.1",
     "lodash": "^4.17.21",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.7",
     "wrangler": "^4.95.0"
   }

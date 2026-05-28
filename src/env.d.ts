@@ -10,3 +10,10 @@ declare namespace Cloudflare {
     RL: KVNamespace;
   }
 }
+
+// Ambient declaration for Cloudflare Workers virtual module.
+// The @astrojs/cloudflare adapter provides this at runtime; we declare
+// it here so TypeScript resolves `import { env } from "cloudflare:workers"`.
+declare module 'cloudflare:workers' {
+  export const env: Cloudflare.Env;
+}
