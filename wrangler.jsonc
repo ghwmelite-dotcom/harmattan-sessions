@@ -1,0 +1,12 @@
+{
+  "name": "harmattan-sessions",
+  "compatibility_date": "2026-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    { "binding": "DB", "database_name": "harmattan_sessions", "database_id": "PLACEHOLDER_SET_AFTER_d1_create" }
+  ],
+  "kv_namespaces": [
+    { "binding": "RL", "id": "PLACEHOLDER_SET_AFTER_kv_create" }
+  ]
+}
