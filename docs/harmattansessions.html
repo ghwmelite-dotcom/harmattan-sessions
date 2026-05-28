@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harmattan Sessions — landing (themed)</title>
+<script>
+/* no-flash theme init: stored pref → system pref → dark default */
+(function(){try{var t=localStorage.getItem('hs-theme');
+if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  [data-theme="dark"]{
+    --bg:#0E0B08; --bg-elev:#15100B; --surface:#1C1714; --surface-2:#221B16;
+    --text:#E7DAC8; --text-strong:#F4E8D6; --text-dim:rgba(231,218,200,.62);
+    --gold:#E8B04B; --terracotta:#C96E3F; --line:rgba(231,218,200,.12);
+    --accent:#E8B04B; --on-accent:#231803; --nav-bg:rgba(14,11,8,.72);
+    --glow-1:rgba(201,110,63,.20); --glow-2:rgba(232,176,75,.10); --grain:rgba(231,218,200,.6); --grain-op:.04;
+  }
+  [data-theme="light"]{
+    --bg:#F4EADB; --bg-elev:#FBF3E7; --surface:#FFFDF9; --surface-2:#FBF3E7;
+    --text:#2A2017; --text-strong:#1B130C; --text-dim:rgba(36,26,18,.6);
+    --gold:#8F5E12; --terracotta:#A8502A; --line:rgba(36,26,18,.12);
+    --accent:#E8B04B; --on-accent:#231803; --nav-bg:rgba(244,234,219,.78);
+    --glow-1:rgba(201,110,63,.16); --glow-2:rgba(232,176,75,.16); --grain:rgba(36,26,18,.5); --grain-op:.04;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;transition:background .4s ease,color .4s ease}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;letter-spacing:-.01em;color:var(--text-strong)}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:999px;cursor:pointer;border:0;transition:transform .15s ease,background .2s ease,border-color .2s}
+  .btn-primary{background:var(--accent);color:var(--on-accent)}
+  .btn-primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* logo */
+  .logo{display:inline-flex;align-items:center;gap:10px}
+  .logo .mk{width:30px;height:30px}
+  .brand{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--text-strong);letter-spacing:-.01em}
+  .brand .dot{color:var(--gold)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:var(--nav-bg);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:18px}
+  .nav-links{display:flex;gap:30px;font-size:14px;color:var(--text-dim)}
+  .nav-links a:hover{color:var(--text)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .tgl{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;
+    display:grid;place-items:center;color:var(--gold);transition:border-color .2s}
+  .tgl:hover{border-color:var(--gold)}.tgl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:120px 0 96px;
+    background:radial-gradient(90% 70% at 78% 8%, var(--glow-1) 0%, transparent 55%),
+      radial-gradient(70% 60% at 12% 100%, var(--glow-2) 0%, transparent 60%), var(--bg)}
+  .hero::after{content:"";position:absolute;inset:0;opacity:var(--grain-op);pointer-events:none;
+    background-image:radial-gradient(var(--grain) 1px,transparent 1px);background-size:3px 3px}
+  .hero-in{position:relative;max-width:760px}
+  .hero h1{font-size:clamp(40px,7vw,76px);margin:18px 0 0}
+  .hero h1 .it{font-style:italic;color:var(--gold);font-weight:400}
+  .hero p.sub{font-size:clamp(16px,2.2vw,20px);color:var(--text-dim);margin:22px 0 34px;max-width:560px}
+  .capture{display:flex;gap:10px;max-width:460px;flex-wrap:wrap}
+  .capture input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:13px 20px;color:var(--text);font-family:inherit;font-size:15px}
+  .capture input::placeholder{color:var(--text-dim)}
+  .capture input:focus{outline:none;border-color:var(--gold)}
+  .nowplay{display:inline-flex;align-items:center;gap:10px;margin-top:40px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--text-dim)}
+  .nowplay .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}
+  .nowplay .eq i{width:2px;background:var(--gold);animation:eq 1s ease-in-out infinite}
+  .nowplay .eq i:nth-child(2){animation-delay:.2s}.nowplay .eq i:nth-child(3){animation-delay:.4s}
+  @keyframes eq{0%,100%{height:4px}50%{height:14px}}
+  @media(prefers-reduced-motion:reduce){.nowplay .eq i{animation:none;height:9px}*{transition:none!important}}
+
+  section.blk{padding:84px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px}
+  .sec-head h2{font-size:clamp(26px,4vw,40px)}
+  .sec-head p{color:var(--text-dim);font-size:15px;max-width:420px;margin-top:8px}
+
+  .sounds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:900px){.sounds{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.sounds{grid-template-columns:1fr}}
+  .sound{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .18s ease,border-color .18s ease;cursor:pointer}
+  .sound:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .sound .chip{width:34px;height:34px;border-radius:10px;margin-bottom:16px}
+  .sound h3{font-size:19px;margin-bottom:4px}
+  .sound .meta{font-size:12.5px;color:var(--gold);font-weight:600;letter-spacing:.04em}
+  .sound .mood{font-size:13px;color:var(--text-dim);margin-top:6px}
+
+  .mixrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.mixrow{grid-template-columns:1fr}}
+  .mixcard{border:1px dashed var(--line);border-radius:16px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--text-dim);background:linear-gradient(160deg,var(--surface) 0%,var(--bg-elev) 100%)}
+  .empty-note{margin-top:24px;font-size:14px;color:var(--text-dim)}.empty-note b{color:var(--text)}
+  .empty-note a{color:var(--gold)}
+
+  .field{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .loc{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;color:var(--text)}
+  .loc .dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
+
+  .platforms{display:flex;flex-wrap:wrap;gap:12px}
+  .plat{border:1px solid var(--line);border-radius:12px;padding:14px 22px;font-weight:600;font-size:15px;color:var(--text);transition:border-color .18s,color .18s}
+  .plat:hover{border-color:var(--gold);color:var(--gold)}
+
+  .dispatch{background:linear-gradient(150deg,var(--surface) 0%,var(--bg-elev) 100%);border:1px solid var(--line);border-radius:24px;padding:56px 44px;text-align:center}
+  .dispatch h2{font-size:clamp(26px,4vw,38px)}
+  .dispatch p{color:var(--text-dim);margin:14px auto 28px;max-width:460px}
+  .dispatch .capture{margin:0 auto;justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:54px 0 40px;color:var(--text-dim);font-size:14px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
+  .foot-grid a{color:var(--text-dim)}.foot-grid a:hover{color:var(--gold)}
+  .foot-col{max-width:260px}
+  .foot-col h4{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin-bottom:14px}
+  .foot-col a{display:block;margin-bottom:9px}
+  .disclosure{font-size:12.5px;color:var(--text-dim);opacity:.8;border-top:1px solid var(--line);padding-top:22px;line-height:1.6}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="vinyl" viewBox="0 0 64 64">
+    <defs><radialGradient id="vg" cx="36%" cy="27%" r="82%"><stop offset="0" style="stop-color:var(--accent)"/><stop offset="1" style="stop-color:var(--terracotta)"/></radialGradient></defs>
+    <circle cx="32" cy="32" r="22" fill="url(#vg)"/>
+    <ellipse cx="24" cy="22" rx="13" ry="8.5" fill="#fff" opacity=".13"/>
+    <circle cx="32" cy="32" r="16.5" fill="none" stroke="#2a1604" stroke-opacity=".22" stroke-width="1.3"/>
+    <circle cx="32" cy="32" r="12" fill="none" stroke="#2a1604" stroke-opacity=".22" stroke-width="1.3"/>
+    <circle cx="32" cy="32" r="6" fill="#2A1604"/><circle cx="32" cy="32" r="1.7" fill="var(--bg)"/>
+  </symbol>
+</svg>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="#"><svg class="mk"><use href="#vinyl"/></svg><span class="brand">Harmattan<span class="dot">·</span>Sessions</span></a>
+  <div class="nav-links"><a href="#sounds">The Sounds</a><a href="#mixes">Mixes</a><a href="#field">Field Recordings</a><a href="#listen">Listen</a></div>
+  <div class="nav-right">
+    <button class="tgl" id="tgl" onclick="flip()" aria-label="Toggle light or dark mode"></button>
+    <button class="btn btn-primary">Subscribe</button>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-in">
+  <span class="label">The sound of African evenings</span>
+  <h1>Afrobeat chill, highlife lofi &amp; <span class="it">ancestral ambient</span> — from Accra.</h1>
+  <p class="sub">Curated long-form mixes layered with real field recordings of Ghana — the harmattan wind, Labadi shorelines, Makola at dawn. Made to study, unwind, and drift to.</p>
+  <form class="capture" onsubmit="return false"><input type="email" placeholder="your@email.com" aria-label="Email address"><button class="btn btn-primary">Join the Dispatch</button></form>
+  <div class="nowplay"><span class="eq"><i></i><i></i><i></i></span> Now playing —&nbsp;<strong style="color:var(--text);font-weight:600">Labadi Sunset · Afro-Lofi</strong></div>
+</div></header>
+
+<section class="blk" id="sounds"><div class="wrap">
+  <div class="sec-head"><div><span class="label">The catalogue</span><h2>Eight sounds, one evening.</h2></div><p>Every track carries at least one genuine West African element as its backbone — never decoration.</p></div>
+  <div class="sounds">
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#E8B04B,#C96E3F)"></div><h3>Afro-Lofi</h3><div class="meta">70–80 BPM</div><div class="mood">Study, chill</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#C96E3F,#7a3b25)"></div><h3>Highlife Chill</h3><div class="meta">78–85 BPM</div><div class="mood">Nostalgic, golden</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#C9952B,#6B7A4F)"></div><h3>Amapiano Lounge</h3><div class="meta">100–108 BPM</div><div class="mood">Sophisticated</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#d4733f,#9c2f4a)"></div><h3>Afro-Soul Sunset</h3><div class="meta">65–72 BPM</div><div class="mood">Romantic, late-night</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#b9863a,#4a3320)"></div><h3>Afro-Jazz Lounge</h3><div class="meta">82–88 BPM</div><div class="mood">Dinner, smoky</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#3f7d6b,#1d4a3f)"></div><h3>Coastal Afro-House</h3><div class="meta">100–105 BPM</div><div class="mood">Meditative</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#8a6fae,#3a2f56)"></div><h3>Ancestral Ambient</h3><div class="meta">55–62 BPM</div><div class="mood">Sacred, ceremonial</div></div>
+    <div class="sound"><div class="chip" style="background:linear-gradient(135deg,#5a6b86,#23303f)"></div><h3>Afrobeats Rain</h3><div class="meta">55–60 BPM</div><div class="mood">Sleep</div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="mixes"><div class="wrap">
+  <div class="sec-head"><div><span class="label">Latest sessions</span><h2>Fresh mixes.</h2></div><a class="btn btn-ghost" href="#">All sessions →</a></div>
+  <div class="mixrow">
+    <div class="mixcard"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="var(--gold)" stroke="none"/></svg><span>Session 001</span></div>
+    <div class="mixcard"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="var(--gold)" stroke="none"/></svg><span>Session 002</span></div>
+    <div class="mixcard"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="var(--gold)" stroke="none"/></svg><span>Session 003</span></div>
+  </div>
+  <p class="empty-note">The first <b>Harmattan Sessions</b> mixes drop soon. <a href="#">Subscribe</a> to hear them first.</p>
+</div></section>
+
+<section class="blk" id="field"><div class="wrap">
+  <div class="sec-head"><div><span class="label">The moat</span><h2>Recorded on location, in Ghana.</h2></div><p>The layer no remote channel can fake. Captured at 44.1kHz and woven under every mix.</p></div>
+  <div class="field">
+    <span class="loc"><span class="dot"></span>Labadi Beach — dusk surf</span><span class="loc"><span class="dot"></span>Makola Market — dawn hum</span>
+    <span class="loc"><span class="dot"></span>Aburi Hills — harmattan wind</span><span class="loc"><span class="dot"></span>Jamestown — evening street</span>
+    <span class="loc"><span class="dot"></span>Volta — rain on the river</span>
+  </div>
+</div></section>
+
+<section class="blk" id="listen"><div class="wrap">
+  <div class="sec-head"><div><span class="label">Everywhere you listen</span><h2>Find the sessions.</h2></div></div>
+  <div class="platforms"><a class="plat" href="#">YouTube</a><a class="plat" href="#">Spotify</a><a class="plat" href="#">Apple Music</a><a class="plat" href="#">Tidal</a><a class="plat" href="#">Bandcamp</a></div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="dispatch">
+    <span class="label">The Harmattan Dispatch</span><h2>One email, every Friday.</h2>
+    <p>The week's new mix, a featured field recording, and one thing worth your evening. No noise.</p>
+    <form class="capture" onsubmit="return false"><input type="email" placeholder="your@email.com" aria-label="Email address"><button class="btn btn-primary">Subscribe</button></form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-col">
+      <a class="logo" href="#" style="margin-bottom:12px"><svg class="mk"><use href="#vinyl"/></svg><span class="brand">Harmattan<span class="dot">·</span>Sessions</span></a>
+      <p style="font-size:13.5px">The sound of African evenings. Built in Accra, Ghana.</p>
+    </div>
+    <div class="foot-col"><h4>Listen</h4><a href="#">YouTube</a><a href="#">Spotify</a><a href="#">Apple Music</a><a href="#">Bandcamp</a></div>
+    <div class="foot-col"><h4>Explore</h4><a href="#">The Sounds</a><a href="#">Mixes</a><a href="#">Field Recordings</a><a href="#">License music</a></div>
+    <div class="foot-col"><h4>Connect</h4><a href="#">Newsletter</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">hello@harmattansessions.com</a></div>
+  </div>
+  <p class="disclosure">Music is AI-assisted and human-curated: every release is mixed, mastered, and layered with original field recordings captured in Ghana. © 2026 Harmattan Sessions — Hodges &amp; Co. Ltd.</p>
+</div></footer>
+
+<script>
+  const root=document.documentElement;
+  const sun='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" stroke-linecap="round"/></svg>';
+  const moon='<svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke-linejoin="round"/></svg>';
+  function paint(){document.getElementById('tgl').innerHTML=root.getAttribute('data-theme')==='dark'?moon:sun;}
+  function flip(){const d=root.getAttribute('data-theme')==='dark';root.setAttribute('data-theme',d?'light':'dark');try{localStorage.setItem('hs-theme',d?'light':'dark')}catch(e){}paint();}
+  paint();
+</script>
+</body>
+</html>
