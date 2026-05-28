@@ -1,0 +1,47 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head><BaseHead title={title} description={description} /></head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="vinyl" viewBox="0 0 64 64">
+        <defs><radialGradient id="vg" cx="36%" cy="27%" r="82%">
+          <stop offset="0" stop-color="var(--accent)"></stop><stop offset="1" stop-color="var(--terracotta)"></stop>
+        </radialGradient></defs>
+        <circle cx="32" cy="32" r="22" fill="url(#vg)"></circle>
+        <ellipse cx="24" cy="22" rx="13" ry="8.5" fill="#fff" opacity="0.13"></ellipse>
+        <circle cx="32" cy="32" r="16.5" fill="none" stroke="#2a1604" stroke-opacity="0.22" stroke-width="1.3"></circle>
+        <circle cx="32" cy="32" r="12" fill="none" stroke="#2a1604" stroke-opacity="0.22" stroke-width="1.3"></circle>
+        <circle cx="32" cy="32" r="6" fill="#2A1604"></circle>
+        <circle cx="32" cy="32" r="1.7" fill="var(--bg)"></circle>
+      </symbol>
+    </svg>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <slot />
+    <script>
+  document.querySelectorAll('form.hs-subscribe').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget as HTMLFormElement;
+      const btn = f.querySelector('button')!; const prev = btn.textContent;
+      const data = Object.fromEntries(new FormData(f).entries()) as Record<string, string>;
+      data.source = f.dataset.source ?? 'unknown';
+      btn.setAttribute('disabled', 'true'); btn.textContent = '…';
+      const msg = f.parentElement?.querySelector('.hs-form-msg') as HTMLElement | null;
+      try {
+        const res = await fetch('/api/newsletter', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) });
+        if (msg) msg.textContent = res.ok ? 'You\'re on the list — the first dispatch lands Friday.' : 'That didn\'t work. Try again?';
+        if (res.ok) f.reset();
+      } catch { if (msg) msg.textContent = 'Network error. Try again?'; }
+      finally { btn.removeAttribute('disabled'); btn.textContent = prev; }
+    });
+  });
+</script>
+  </body>
+</html>

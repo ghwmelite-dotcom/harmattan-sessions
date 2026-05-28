@@ -6,6 +6,19 @@ This repository is the build-and-operate workspace for **Harmattan Sessions**, a
 
 ---
 
+## Local development
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md) for the full guide (local D1 setup, deploy steps, outstanding manual QA).
+
+```bash
+npm install
+npm run dev     # http://localhost:4321
+npm run build   # production build → dist/
+npm test        # Vitest unit tests
+```
+
+---
+
 ## What's In This Repo
 
 ```

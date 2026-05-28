@@ -1,0 +1,9 @@
+---
+import { siteConfig } from '../siteConfig';
+---
+<section class="blk" id="listen"><div class="wrap">
+  <div class="sec-head"><div><span class="label">Everywhere you listen</span><h2>Find the sessions.</h2></div></div>
+  <div class="platforms">
+    {siteConfig.platforms.map((p) => <a class="plat" href={p.url}>{p.name}</a>)}
+  </div>
+</div></section>

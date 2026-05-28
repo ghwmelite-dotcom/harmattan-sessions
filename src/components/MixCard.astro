@@ -1,0 +1,9 @@
+---
+interface Props { title: string; youtubeVideoId?: string; }
+const { title, youtubeVideoId } = Astro.props;
+const href = youtubeVideoId ? `https://youtube.com/watch?v=${youtubeVideoId}` : '#';
+---
+<a class="mixcard mixcard--real" href={href}>
+  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="var(--gold)" stroke="none"/></svg>
+  <span>{title}</span>
+</a>

@@ -1,0 +1,2 @@
+# copy to .dev.vars (gitignored). No secrets needed for EPIC-01 yet.
+# EMAIL_PROVIDER_KEY=   # added in EPIC-05

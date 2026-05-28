@@ -1,0 +1,16 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig } from '../siteConfig';
+---
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-col">
+      <Logo size={30} />
+      <p style="font-size:13.5px;margin-top:12px">The sound of African evenings. Built in Accra, Ghana.</p>
+    </div>
+    <div class="foot-col"><h4>Listen</h4>{siteConfig.platforms.map((p) => <a href={p.url}>{p.name}</a>)}</div>
+    <div class="foot-col"><h4>Explore</h4><a href="#sounds">The Sounds</a><a href="#mixes">Mixes</a><a href="#field">Field Recordings</a></div>
+    <div class="foot-col"><h4>Connect</h4>{siteConfig.social.map((s) => <a href={s.url}>{s.name}</a>)}<a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></div>
+  </div>
+  <p class="disclosure">Music is AI-assisted and human-curated: every release is mixed, mastered, and layered with original field recordings captured in Ghana. © 2026 Harmattan Sessions — Hodges &amp; Co. Ltd.</p>
+</div></footer>
