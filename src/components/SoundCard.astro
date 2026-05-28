@@ -1,0 +1,10 @@
+---
+interface Props { name: string; bpmRange: string; mood: string; chipFrom: string; chipTo: string; }
+const { name, bpmRange, mood, chipFrom, chipTo } = Astro.props;
+---
+<div class="sound">
+  <div class="chip" style={`background:linear-gradient(135deg, ${chipFrom}, ${chipTo})`}></div>
+  <h3>{name}</h3>
+  <div class="meta">{bpmRange} BPM</div>
+  <div class="mood">{mood}</div>
+</div>
