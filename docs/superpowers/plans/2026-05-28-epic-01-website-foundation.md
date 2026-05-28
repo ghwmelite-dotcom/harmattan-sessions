@@ -4,9 +4,9 @@
 
 **Goal:** Ship `harmattansessions.com` — an Astro 5 SSR-hybrid site on Cloudflare Pages with the Harmattan Dusk/Daylight theme system, the Sun Vinyl logo, a full landing page driven by Keystatic file-based content, and a live D1-backed newsletter signup.
 
-**Architecture:** Single Astro 5 project + `@astrojs/cloudflare`. Marketing pages prerender to static HTML; `/api/*` and `/keystatic` opt into on-demand rendering with D1 (`DB`) + KV (`RL`) bindings via `locals.runtime.env`. Catalog content lives in Keystatic file-based collections (`src/content`); D1 catalog tables are defined now but populated in EPIC-02. Deploy is local-first → push to GitHub `main` → Cloudflare Pages Git integration auto-deploys.
+**Architecture:** Single Astro 6 project + `@astrojs/cloudflare` v13. Marketing pages prerender to static HTML; `/api/*` and `/keystatic` opt into on-demand rendering with D1 (`DB`) + KV (`RL`) bindings via `locals.runtime.env`. Catalog content lives in Keystatic file-based collections (`src/content`); D1 catalog tables are defined now but populated in EPIC-02. Deploy is local-first → push to GitHub `main` → Cloudflare Pages Git integration auto-deploys.
 
-**Tech Stack:** Astro 5, TypeScript (strict), `@astrojs/cloudflare`, `@astrojs/sitemap`, Keystatic (`@keystatic/astro` + `@keystatic/core`), Cloudflare D1 + KV, Wrangler, Vitest + `@cloudflare/vitest-pool-workers`, Fraunces + DM Sans (Google Fonts).
+**Tech Stack:** Astro 6, TypeScript (strict), `@astrojs/cloudflare` v13, `@astrojs/sitemap`, Keystatic (`@keystatic/astro` + `@keystatic/core`), Cloudflare D1 + KV, Wrangler, Vitest + `@cloudflare/vitest-pool-workers`, Fraunces + DM Sans (Google Fonts).
 
 **Source of truth for markup/CSS:** `docs/harmattansessions.html` (committed approved visual spec). **Design spec:** `docs/superpowers/specs/2026-05-28-epic-01-website-foundation-design.md`.
 
@@ -71,12 +71,12 @@ import keystatic from '@keystatic/astro';
 
 export default defineConfig({
   site: 'https://harmattansessions.com',
-  output: 'static',                 // marketing prerenders; dynamic routes opt out per-route
-  adapter: cloudflare({ platformProxy: { enabled: true } }),
+  output: 'static',                 // marketing prerenders; dynamic routes opt out with `export const prerender = false`
+  adapter: cloudflare({ imageService: 'compile', prerenderEnvironment: 'node' }),
   integrations: [keystatic(), sitemap()],
 });
 ```
-> Verify against current Astro 5 + `@astrojs/cloudflare` docs whether `output: 'static'` + per-route `prerender=false` is the right combo for this adapter version, or whether `output: 'server'` with prerendered marketing is preferred. Adjust this one line accordingly.
+> **As implemented (Astro 6 + `@astrojs/cloudflare` v13):** `platformProxy` was removed (dev bindings come from the Cloudflare Vite plugin automatically). `imageService: 'compile'` avoids the auto `IMAGES` binding; `prerenderEnvironment: 'node'` avoids the reserved `ASSETS` binding conflict during the build's prerender step. A minimal `keystatic.config.ts` stub must exist for the build to resolve `virtual:keystatic-config` (populated in Task 8).
 
 - [ ] **Step 4: Write `wrangler.jsonc`**
 
@@ -100,13 +100,19 @@ export default defineConfig({
 
 ```ts
 /// <reference types="astro/client" />
-type KVNamespace = import('@cloudflare/workers-types').KVNamespace;
-type D1Database = import('@cloudflare/workers-types').D1Database;
-type Runtime = import('@astrojs/cloudflare').Runtime<{ DB: D1Database; RL: KVNamespace }>;
-declare namespace App {
-  interface Locals extends Runtime {}
+/// <reference types="@cloudflare/workers-types" />
+
+// Astro 6 + @astrojs/cloudflare v13: `Astro.locals.runtime.env` was removed.
+// Access bindings via `import { env } from "cloudflare:workers"`.
+// Augmenting Cloudflare.Env types that `env` import across the project.
+declare namespace Cloudflare {
+  interface Env {
+    DB: D1Database;
+    RL: KVNamespace;
+  }
 }
 ```
+> Bindings are accessed in on-demand routes via `import { env } from 'cloudflare:workers'` (NOT `Astro.locals.runtime.env`, which v6 removed).
 
 - [ ] **Step 6: Add scripts to `package.json`**
 
@@ -1177,6 +1183,7 @@ export async function sendConfirmation(_s: Subscriber): Promise<void> {
 
 ```ts
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 import { isValidEmail, normalizeEmail } from '../../lib/validation';
 import { checkRateLimit } from '../../lib/ratelimit';
 import { upsertSubscriber } from '../../lib/db';
@@ -1184,8 +1191,7 @@ import { sendConfirmation } from '../../lib/email';
 
 export const prerender = false;
 
-export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
-  const env = locals.runtime.env;
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   const ok = () => new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'content-type': 'application/json' } });
   let body: Record<string, unknown>;
   try { body = await request.json(); } catch { return new Response(JSON.stringify({ ok: false, error: 'bad_request' }), { status: 400 }); }
@@ -1288,16 +1294,17 @@ describe('POST /api/newsletter (contract)', () => {
 
 ```ts
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 import { getCollection } from 'astro:content';
 export const prerender = false;
-export const GET: APIRoute = async ({ locals }) => {
-  const cached = await locals.runtime.env.RL.get('nowplaying');
+export const GET: APIRoute = async () => {
+  const cached = await env.RL.get('nowplaying');
   if (cached) return new Response(cached, { headers: { 'content-type': 'application/json' } });
   const mixes = (await getCollection('mixes')).filter((m) => m.data.isPublished)
     .sort((a, b) => +b.data.releasedAt - +a.data.releasedAt);
   const label = mixes[0]?.data.title ?? 'Labadi Sunset · Afro-Lofi';
   const body = JSON.stringify({ nowPlaying: label });
-  await locals.runtime.env.RL.put('nowplaying', body, { expirationTtl: 300 });
+  await env.RL.put('nowplaying', body, { expirationTtl: 300 });
   return new Response(body, { headers: { 'content-type': 'application/json' } });
 };
 ```
