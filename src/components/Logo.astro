@@ -1,0 +1,8 @@
+---
+interface Props { size?: number; wordmark?: boolean; stacked?: boolean; }
+const { size = 30, wordmark = true, stacked = false } = Astro.props;
+---
+<a class={`logo${stacked ? ' logo--stacked' : ''}`} href="/" aria-label="Harmattan Sessions home">
+  <svg class="mk" width={size} height={size} aria-hidden="true"><use href="#vinyl"></use></svg>
+  {wordmark && <span class="brand">Harmattan<span class="dot">·</span>Sessions</span>}
+</a>

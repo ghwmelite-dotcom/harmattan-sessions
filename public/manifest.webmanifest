@@ -1,0 +1,1 @@
+{ "name": "Harmattan Sessions", "short_name": "Harmattan", "theme_color": "#0E0B08", "background_color": "#0E0B08", "display": "standalone", "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }] }
