@@ -36,7 +36,7 @@ const { title, description } = Astro.props;
       const msg = f.parentElement?.querySelector('.hs-form-msg') as HTMLElement | null;
       try {
         const res = await fetch('/api/newsletter', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) });
-        if (msg) msg.textContent = res.ok ? 'Check your inbox — welcome to the Dispatch.' : 'That didn\'t work. Try again?';
+        if (msg) msg.textContent = res.ok ? 'You\'re on the list — the first dispatch lands Friday.' : 'That didn\'t work. Try again?';
         if (res.ok) f.reset();
       } catch { if (msg) msg.textContent = 'Network error. Try again?'; }
       finally { btn.removeAttribute('disabled'); btn.textContent = prev; }
