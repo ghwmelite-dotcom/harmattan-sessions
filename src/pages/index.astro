@@ -1,17 +1,23 @@
 ---
-
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import SoundsGrid from '../components/SoundsGrid.astro';
+import MixesGrid from '../components/MixesGrid.astro';
+import FieldRecordings from '../components/FieldRecordings.astro';
+import ListenPlatforms from '../components/ListenPlatforms.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Harmattan Sessions — the sound of African evenings" description="Afrobeat chill, highlife lofi & ancestral ambient from Accra, Ghana. Long-form mixes layered with real field recordings.">
+  <Nav />
+  <main id="main">
+    <Hero />
+    <SoundsGrid />
+    <MixesGrid />
+    <FieldRecordings />
+    <ListenPlatforms />
+    <Newsletter />
+  </main>
+  <Footer />
+</Base>
