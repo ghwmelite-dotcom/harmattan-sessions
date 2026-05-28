@@ -2,10 +2,10 @@
   "name": "harmattan-sessions",
   "compatibility_date": "2026-05-01",
   "compatibility_flags": ["nodejs_compat"],
-  // @astrojs/cloudflare v13 emits a Workers-with-Static-Assets bundle into ./dist;
-  // deploy via `cd dist/server && wrangler deploy` (NOT `wrangler pages deploy`).
-  // `pages_build_output_dir` is kept only so `astro dev` recognises the local-dev config.
-  "pages_build_output_dir": "./dist",
+  // @astrojs/cloudflare v13 emits a Workers-with-Static-Assets bundle.
+  // Deploy via `npm run build && npx wrangler deploy` (uses the adapter's
+  // generated dist/server/wrangler.json via .wrangler/deploy/config.json).
+  // Local dev (`astro dev`) reads the bindings below via the Cloudflare Vite plugin.
   "d1_databases": [
     {
       "binding": "DB",
