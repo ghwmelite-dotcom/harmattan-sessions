@@ -20,6 +20,7 @@
     }
   ],
   "routes": [
-    { "pattern": "hs.ohwpstudios.org", "custom_domain": true }
+    { "pattern": "hs.ohwpstudios.org", "custom_domain": true },
+    { "pattern": "www.hs.ohwpstudios.org", "custom_domain": true }
   ]
 }
