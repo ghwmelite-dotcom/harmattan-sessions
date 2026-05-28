@@ -1,6 +1,6 @@
 # EPIC-01 — Website Foundation · Design Spec
 
-> **Status:** Draft for review
+> **Status:** Approved — 2026-05-28 (email send deferred to EPIC-05; build local-first; deploy via GitHub → Cloudflare Pages)
 > **Date:** 2026-05-28
 > **Owner:** Ozzy Hodges (Hodges & Co. Ltd)
 > **Source PRD:** `PRD.md` — EPIC-01 (+ EPIC-02 infrastructure pulled forward)
@@ -22,7 +22,7 @@ Ship a production-deployed, brand-correct `harmattansessions.com` on Cloudflare 
 | Build scope | Full landing (all sections) + **D1/Keystatic wiring now** |
 | Catalog content | **Keystatic file-based collections now**; D1 *catalog* tables defined but populated in EPIC-02 |
 | D1 usage now | **Live** for the newsletter `subscribers` table + rate limiting; catalog tables created via migration, unpopulated |
-| Deploy | **Deploy to Cloudflare this session** (requires `wrangler login` / API token from owner — see §13) |
+| Deploy | **Build local-first**, then **push to GitHub** (`ghwmelite-dotcom/harmattan-sessions`, `main`) and connect **Cloudflare Pages Git integration** for auto-deploy on push — see §13 |
 | Art direction | **Harmattan Dusk** (dark) + **Harmattan Daylight** (light), designed as a pair |
 | Type | **Fraunces** (display/headings) + **DM Sans** (body/UI) |
 | Logo | **Sun Vinyl** — a record that reads as a setting sun; locked |
@@ -197,7 +197,7 @@ Marketing pages are prerendered. The `now-playing` chip degrades gracefully to a
 
 ## 7 — Content Model (Keystatic, file-based)
 
-`keystatic.config.ts` — local mode (filesystem) for Phase 0; switch `storage` to `{ kind: 'github', repo }` once the repo is on GitHub for hosted editing. Admin mounted at `/keystatic` (SSR route). Astro reads the same files via content collections (`src/content.config.ts`).
+`keystatic.config.ts` — local mode (filesystem) for the initial build/dev. The repo now exists on GitHub, so **GitHub mode is viable**: switch `storage` to `{ kind: 'github', repo: 'ghwmelite-dotcom/harmattan-sessions' }` to enable hosted editing at `/keystatic` (requires connecting a Keystatic GitHub App — owner step). Admin mounted at `/keystatic` (SSR route). Astro reads the same files via content collections (`src/content.config.ts`).
 
 Collections:
 
@@ -308,15 +308,18 @@ TypeScript strict mode; no `any` without justification.
 
 ---
 
-## 13 — Deployment (Cloudflare)
+## 13 — Deployment (GitHub → Cloudflare Pages)
 
-1. `wrangler` added as a devDependency (not global).
-2. **Auth (owner action):** `wrangler login` (interactive browser OAuth) *or* set `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`. Interactive login can be run in-session via `! wrangler login`. **Blocker until provided.**
-3. Provision: `wrangler d1 create harmattan_sessions`, `wrangler kv namespace create RL`; bind both in `wrangler.jsonc`.
-4. Apply migration: `wrangler d1 migrations apply harmattan_sessions` (remote + local).
-5. Build + deploy: `astro build` → Cloudflare Pages (via `wrangler pages deploy` or Pages Git integration).
-6. **Custom domain (E01-S5):** `harmattansessions.com` via Cloudflare Registrar + Pages custom domain. Requires the domain to be registered/claimed by the owner — confirm availability.
-7. Secrets via `.dev.vars` (local) and Pages env vars (remote); never committed.
+**Strategy:** build & verify locally first, then ship via Git integration — pushing to `main` auto-builds and deploys on Cloudflare Pages. No interactive `wrangler login` is needed for *deploys* (Cloudflare builds in its own CI); `wrangler` auth is only needed once to provision/migrate D1+KV.
+
+1. **Repo:** `github.com/ghwmelite-dotcom/harmattan-sessions`, branch `main` (production). ✅ pushed.
+2. **Local dev/build:** `wrangler` as a devDependency; `astro dev` (with platformProxy exposing local D1+KV) for development; `astro build` + `astro preview` to verify before pushing.
+3. **Connect Pages (owner, one-time, dashboard):** Cloudflare Pages → *Connect to Git* → select the repo. Build command `astro build`, output dir `dist`, production branch `main`.
+4. **Bindings (dashboard or `wrangler.jsonc`):** bind D1 `DB` (`harmattan_sessions`) and KV `RL` to the Pages project for both production and preview environments.
+5. **Provision + migrate (owner, one-time):** `wrangler login` once, then `wrangler d1 create harmattan_sessions`, `wrangler kv namespace create RL`, and `wrangler d1 migrations apply harmattan_sessions` (local for dev; remote once provisioned). Independent of the Git deploy.
+6. **Preview deploys:** every PR / non-`main` branch gets a Pages preview URL automatically.
+7. **Custom domain (E01-S5):** attach `harmattansessions.com` in Pages once registered (Cloudflare Registrar) — owner step; the site is live on `*.pages.dev` meanwhile.
+8. **Secrets:** `.dev.vars` (local, gitignored) + Pages env vars (remote); never committed.
 
 ---
 
@@ -353,7 +356,7 @@ TypeScript strict mode; no `any` without justification.
 
 ## 17 — Risks / Open Questions
 
-- **Cloudflare auth & domain** — deploy blocks until the owner provides `wrangler login`/token; needs `harmattansessions.com` registered. *Mitigation:* build + verify locally and on `*.pages.dev` first; attach the domain when ready.
+- **Cloudflare connection & domain** — code is on GitHub (`main`). Remaining owner steps: a one-time Pages *Connect to Git* + binding setup in the dashboard, and `wrangler login` once to provision D1/KV + apply migrations. `harmattansessions.com` still needs registering. *Mitigation:* build + verify locally; the site runs on `*.pages.dev` before the custom domain is attached.
 - **Keystatic SSR on Cloudflare** — admin route needs SSR; confirm the adapter + Keystatic reader work together on Pages (verify against current docs; fallback = local-only Keystatic for Phase 0, which still satisfies file-based editing).
 - **D1 in local dev** — ensure `wrangler dev`/platformProxy exposes the binding to Astro endpoints; document the dev command.
 - **Light-mode `--gold` (#8F5E12) at 11px bold labels** — ~5:1, passes AA but re-check with axe; darken to `#855711` if it fails.
