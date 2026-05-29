@@ -34,11 +34,14 @@ If you don't enforce these, you'll get character faces that morph between frames
 - Use **cinematographic language**: *locked tripod, static wide shot, no camera movement, ambient motion only*
 - Respects source image far more faithfully — character stays consistent
 - Best for hero clips (the opening 30 seconds of the YouTube video) and primary loops
-- Typical output: 8 seconds (Veo 3), longer on 3.1 Lite
+- Typical base output: ~8 seconds (Veo 3 / 3.1 generate short 4–8s clips). Longer
+  runtimes come from the **extend / scene-extension** feature (chaining clips),
+  not a single 30s generation — *verify the current ceiling in-product before
+  relying on it; specs change.*
 - Strength: photoreal, faithful, cinematic
 - Weakness: slower, more expensive per second
 
-**Recommended strategy:** Veo 3.1 Lite for the **primary 30-second hero loop** of each track (the opening shot the viewer first sees). Grok for variant B-roll if you want subtle changes across a long mix.
+**Recommended strategy:** Veo 3.1 Lite for the **primary hero loop** of each track (the opening shot the viewer first sees) — generate a clean ~8s loop and multiply it in the editor to cover the opening minutes. Grok for variant B-roll if you want subtle changes across a long mix. (Don't rely on a single long generation; the editor handles length.)
 
 ---
 
@@ -183,7 +186,7 @@ Example: `afro-lofi-loop-v1.mp4`, `afro-soul-sunset-loop-v1.mp4`
 |----------|--------|------------|----------|------------|
 | Grok     | 16:9   | 720p min   | 6-10s    | 24fps      |
 | Veo 3    | 16:9   | 1080p      | 8s       | 24fps      |
-| Veo 3.1 Lite | 16:9 | 1080p   | up to 30s | 24fps     |
+| Veo 3.1 Lite | 16:9 | 1080p   | ~8s base (extend for longer) | 24fps     |
 
 For YouTube long-form, the 8-10s loop is multiplied via video editor (CapCut/Clipchamp) — loop the same clip with a 1-second crossfade between repetitions across the full track length.
 
