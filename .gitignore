@@ -24,3 +24,8 @@ dist/
 .DS_Store
 Thumbs.db
 *.local
+
+# local-only audio/scratch (Suno generations etc.)
+tmp/
+# Office temp/lock files
+~$*
