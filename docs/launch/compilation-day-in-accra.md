@@ -13,12 +13,12 @@ The full Session-1 catalog as ONE ~37-min long-form video, sequenced as a **day�
  0:00  Sunday Morning Light   (morning)
  3:56  Aburi Climb            (late-morning climb)
  7:52  Labadi Sunset          (golden hour)
-12:12  Trotro Window          (dusk / night drive)
-16:08  Heartbeat              (bedtime)
-23:08  3 AM                   (deep night)
-30:02  Volta Sleep            (deepest sleep)
+11:52  Trotro Window          (dusk / night drive)
+15:48  Heartbeat              (bedtime)
+22:48  3 AM                   (deep night)
+29:42  Volta Sleep            (deepest sleep)
 ```
-*(Timestamps account for the 4s crossfade overlaps; re-verify against the final render before pasting as YouTube chapters.)*
+*(Computed from per-track durations minus 4s crossfade overlaps. Re-verify against the final render before pasting as YouTube chapters — drift of a few seconds is normal.)*
 
 ## Video — TO DO (needs 7 animated loops)
 Generate one animated loop per cover in **Veo 3.1 Lite** (use the unspent $300 credit) or **Grok Imagine**, off each `Harmattan Single Covers\*.png`. The 5 universal motion rules (from `animation-prompts.md`): no character movement · no camera movement · subtle environment only · loopable · no new objects.
