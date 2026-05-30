@@ -105,7 +105,7 @@ Use **every time**. Fields in `[…]` are per-video. Order is intentional — to
 ```
 [1-2 sentence hook for THIS mix — e.g. "Three hours of Afro-Lofi recorded under the harmattan haze. Layered with field recordings from Labadi Beach and the Aburi Hills."]
 
-▸ Listen everywhere — https://harmattansessions.com/listen
+▸ Harmattan Sessions online — https://hs.ohwpstudios.org   (← live domain; only add Spotify/Apple links once those releases are actually live)
 ▸ The Harmattan Dispatch (Fridays) — https://harmattansessions.com/#dispatch
 
 — Tracklist

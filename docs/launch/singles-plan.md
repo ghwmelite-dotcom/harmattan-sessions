@@ -60,7 +60,7 @@ The daily/weekly content engine — vertical, 15–30s, one per single minimum.
 
 - **Format:** 1080×1920, the single's strongest 15–30s hook
 - **Visual:** the Akua single cover with subtle motion (boomerang loop, same technique as the launch video), OR a vertical crop of the scene
-- **Text:** track name + "Harmattan Sessions" + "full track on Spotify ↗"
+- **Text:** track name + "Harmattan Sessions" + a CTA to a LIVE destination ("Full mix on YouTube ↗" pre-streaming; switch to "Full track on Spotify ↗" only once the single is actually released)
 - **Audio:** start ON the hook — no intro fade (Shorts retention is brutal in the first 2s)
 - **Caption:** 1 line + 3 hashtags (#afrolofi #ghana #lofi)
 - **Cadence:** 1 Short per single minimum; ideally repurpose 2–3 hooks per track for more at-bats
