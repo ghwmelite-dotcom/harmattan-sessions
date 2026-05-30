@@ -19,7 +19,7 @@
 | **Banner** | **2560×1440 PNG.** Safe area **1546×423** (centered). Layout: full-bleed Dusk radial gradient (`#15100B` → `#0E0B08`), the Sun Vinyl mark left-of-center, wordmark "Harmattan·Sessions" in Fraunces 600, and the tagline "*the sound of African evenings — from Accra*" in DM Sans 400 underneath. Subtle dust-grain overlay at 4% opacity. Right edge: a faint terracotta sunset glow. No URLs in the banner (YouTube allows a links overlay separately). |
 | **Watermark (subscribe button overlay)** | 150×150 PNG of the Sun Vinyl mark on transparent. Display **end of video only** (per retention rules — never throughout). |
 | **Trailer** | A 60–90 sec montage clip of the soft-launch mix's strongest moment + brand reveal. Pin as channel trailer once ≥5 long-form uploads exist. |
-| **Featured links overlay** | `harmattansessions.com`, Spotify, Bandcamp, Instagram, TikTok |
+| **Featured links overlay** | `hs.ohwpstudios.org`, Spotify, Bandcamp, Instagram, TikTok |
 
 > Generate the banner + 800×800 avatar with the `design`/`banner-design` skills using the Dusk tokens from `docs/superpowers/specs/2026-05-28-epic-01-website-foundation-design.md` §3.1 — don't free-pick colors.
 
@@ -29,7 +29,7 @@
 
 **Long form (paste into YouTube Studio → Customization → About):**
 
-> Harmattan Sessions is the sound of African evenings — Afrobeat chill, highlife lofi, and ancestral ambient, recorded in Accra, Ghana. Long-form mixes layered with original field recordings of Labadi Beach, Makola Market at dawn, the harmattan wind in the Aburi Hills, and Jamestown's evening street. Eight sounds, one evening: Afro-Lofi · Highlife Chill · Amapiano Lounge · Afro-Soul Sunset · Afro-Jazz Lounge · Coastal Afro-House · Ancestral Ambient · Afrobeats Rain. New mix every Tuesday and Friday. Mega-mix every other Sunday. The Harmattan Dispatch newsletter goes out Fridays at 17:00 GMT — harmattansessions.com.
+> Harmattan Sessions is the sound of African evenings — Afrobeat chill, highlife lofi, and ancestral ambient, recorded in Accra, Ghana. Long-form mixes layered with original field recordings of Labadi Beach, Makola Market at dawn, the harmattan wind in the Aburi Hills, and Jamestown's evening street. Eight sounds, one evening: Afro-Lofi · Highlife Chill · Amapiano Lounge · Afro-Soul Sunset · Afro-Jazz Lounge · Coastal Afro-House · Ancestral Ambient · Afrobeats Rain. New mix every Tuesday and Friday. Mega-mix every other Sunday. The Harmattan Dispatch newsletter goes out Fridays at 17:00 GMT — hs.ohwpstudios.org.
 >
 > Music is AI-assisted and human-curated: every release is mixed, mastered, and layered with field recordings captured on the ground in Ghana. © Hodges & Co. Ltd.
 
@@ -37,7 +37,7 @@
 
 > The sound of African evenings. Afrobeat chill, highlife lofi & ancestral ambient — from Accra, Ghana.
 
-**Business contact email:** `hello@harmattansessions.com`
+**Business contact email:** `harmattansessions@gmail.com`
 
 ---
 
@@ -106,7 +106,7 @@ Use **every time**. Fields in `[…]` are per-video. Order is intentional — to
 [1-2 sentence hook for THIS mix — e.g. "Three hours of Afro-Lofi recorded under the harmattan haze. Layered with field recordings from Labadi Beach and the Aburi Hills."]
 
 ▸ Harmattan Sessions online — https://hs.ohwpstudios.org   (← live domain; only add Spotify/Apple links once those releases are actually live)
-▸ The Harmattan Dispatch (Fridays) — https://harmattansessions.com/#dispatch
+▸ The Harmattan Dispatch (Fridays) — https://hs.ohwpstudios.org/#dispatch
 
 — Tracklist
 00:00  [Track 1 name]
@@ -121,10 +121,10 @@ The sound of African evenings — Afrobeat chill, highlife lofi & ancestral ambi
 Music is AI-assisted and human-curated. Every track is generated with Suno, then mixed, mastered, and layered with original field recordings captured in Ghana. Field-recording locations: [Labadi Beach | Makola Market | Aburi Hills | Jamestown | Volta River — pick the ones used].
 
 — Licensing
-For sync, brand, or venue licensing: hello@harmattansessions.com
+For sync, brand, or venue licensing: harmattansessions@gmail.com
 
 — Follow
-Website  — https://harmattansessions.com
+Website  — https://hs.ohwpstudios.org
 Spotify  — [link]
 Apple Music — [link]
 Bandcamp — [link]
@@ -177,13 +177,13 @@ Paste the matching set into the tag field for every video. 10-15 tags is the swe
 Pin a comment on every long-form video within the first hour of upload — it doubles initial engagement signals.
 
 **Default (most mixes):**
-> Welcome to Harmattan Sessions 🇬🇭 Subscribe for a new mix every Tuesday & Friday — and join the Friday Dispatch at harmattansessions.com. What part of Accra does this one take you to?
+> Welcome to Harmattan Sessions 🇬🇭 Subscribe for a new mix every Tuesday & Friday — and join the Friday Dispatch at hs.ohwpstudios.org. What part of Accra does this one take you to?
 
 **Sleep-mix override** (less CTA — sleepers don't read; ask anyway, the reply is mid-day):
 > The first hours are gentle on purpose — no ads, no sudden volume changes, no end-screen jolts. Good rest, friend. 🌙
 
 **Highlife / Ancestral** (more reverent):
-> Made with deep respect for the masters who built these sounds — Pat Thomas, Ebo Taylor, Toumani Diabaté, and the field that came before us. New mixes at harmattansessions.com.
+> Made with deep respect for the masters who built these sounds — Pat Thomas, Ebo Taylor, Toumani Diabaté, and the field that came before us. New mixes at hs.ohwpstudios.org.
 
 ---
 
@@ -261,7 +261,7 @@ Run when creating the channel:
 - [ ] Avatar uploaded (800×800 PNG, Sun Vinyl on Dusk)
 - [ ] Banner uploaded (2560×1440 with safe area honored)
 - [ ] Watermark uploaded (150×150 PNG, transparent — display: end of video only)
-- [ ] About copy pasted, business email set (`hello@harmattansessions.com`)
+- [ ] About copy pasted, business email set (`harmattansessions@gmail.com`)
 - [ ] Links overlay: site + 5 platforms
 - [ ] 8 sound playlists created + Mega-Mixes + Shorts playlists
 - [ ] Default upload settings: visibility = public, language = English, category = Music, allow embedding, AI disclosure = "altered or synthetic content" toggled on
