@@ -75,6 +75,27 @@ Single #1. Both assets READY ✅.
 
 ---
 
+## SINGLE #2 — Volta Sleep · **RELEASE FRI 10 JULY 2026** (scheduled, 2-deep buffer)
+
+Files prepped in `Downloads\Harmattan Releases\2 - 2026-07 - Volta Sleep\`:
+- Cover: `Volta Sleep - cover.jpg` (JPG from the start — avoids the PNG rejection)
+- Audio: `Volta Sleep - clean.wav` (44.1k/16) — FLAC fallback `Volta Sleep - clean.flac`
+- **Genre: Ambient** (primary) — sleep sound, targets Sleep/Meditation playlists (NOT Afrobeat)
+- Instrumental: Yes · Explicit: No · Songwriter: legal name
+- AI disclosure: Music=AI, All audio=AI, Artist=Human artist/group · Credits: Performer=Harmattan Sessions, Producer=legal name
+
+**Spotify "Pitch a Song" — Volta Sleep (sleep-track tags differ from Labadi):**
+- Genres: Ambient · Instrumental · Sleep
+- Moods: Sleepy · Peaceful · Calm
+- Styles: Instrumental · Ambient · Atmospheric
+- Culture: African
+- Description (≤500 chars):
+```
+"Volta Sleep" is an ambient instrumental from Harmattan Sessions, an independent project rooted in Accra, Ghana. A gentle talking-drum pulse, distant kora and soft mbira drift over warm drones and the sound of rain on the Volta River. Built for deep sleep, rest, and slow nights. Composition AI-assisted; mixing, mastering, curation and field recording by Ozzy Hodges. Independent release, 2026 — curated calm from West Africa.
+```
+
+---
+
 ## After it's submitted
 
 - [ ] Wait for it to reach "processing/live", then claim **Spotify for Artists** + **Apple Music for Artists** (verify ownership of the Harmattan Sessions profile)
