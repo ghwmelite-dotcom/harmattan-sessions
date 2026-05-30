@@ -19,7 +19,7 @@ Osu Rooftop Sunset — Afro-Lofi for Deep Focus | Harmattan Sessions
 ```
 Twenty-five minutes of Afro-Lofi from Accra — palmwine-guitar fragments, brushed shakers, and warm sub-bass, laid over the real sound of a Bortianor taxi rank at street level. Press play, settle in, focus.
 
-▸ Listen everywhere — https://hs.ohwpstudios.org
+▸ Harmattan Sessions online — https://hs.ohwpstudios.org
 ▸ The Harmattan Dispatch (Fridays, 17:00 GMT) — https://hs.ohwpstudios.org/#dispatch
 
 — Tracklist

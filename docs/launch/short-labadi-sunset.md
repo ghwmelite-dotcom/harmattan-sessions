@@ -18,9 +18,11 @@ Energy analysis of `01-...labadi-sunset-v1-EXT.wav`:
 
 Composition: the **animated Akua loop** (`afro-lofi-loop-26min.mp4`, the boomerang clip) centered in the 9:16 frame, with a blurred+darkened copy of itself filling the top/bottom (no black bars), and a transparent text overlay on top:
 - **Top:** `OSU ROOFTOP SUNSET` (Fraunces gold, auto-fit to width) + `Harmattan Sessions` (DM Sans cream) — matches the main YouTube video title
-- **Bottom:** `AFRO-LOFI` + `Full track on Spotify ↗`
-- **Caption (for upload):** `Golden hour in Accra 🌅 #afrolofi #ghana #lofi`
+- **Bottom:** `AFRO-LOFI` + `Full mix on YouTube ↗`
+- **Caption (for upload):** `Golden hour in Accra 🌅 Full mix → youtu.be/6AYdUgf-FQs #afrolofi #ghana #lofi`
 - Cross-post the same file to TikTok + Instagram Reels
+
+> **CTA points to YouTube, not Spotify** — streaming isn't live yet (DistroKid gate). The full 25-min mix IS live at **https://youtu.be/6AYdUgf-FQs**, so the Short drives there (and stacks YouTube watch-time). Swap to Spotify once the single is released. Regenerate the overlay with: `python scripts/make-short-overlay.py "TITLE" "SOUND" overlay.png "Full mix on YouTube  ↗"`
 
 ### Reproducible recipe (per single)
 1. `python scripts/make-short-overlay.py "TITLE" "SOUND" overlay.png` → transparent 1080×1920 text layer

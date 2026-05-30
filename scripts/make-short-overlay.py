@@ -6,6 +6,7 @@ import sys
 TITLE = sys.argv[1] if len(sys.argv) > 1 else "LABADI SUNSET"
 SOUND = sys.argv[2] if len(sys.argv) > 2 else "AFRO-LOFI"
 OUT   = sys.argv[3] if len(sys.argv) > 3 else r"C:\Users\USER\Downloads\short-overlay.png"
+CTA   = sys.argv[4] if len(sys.argv) > 4 else "Full mix on YouTube  ↗"
 FR = r"C:\Users\USER\Downloads\_hs_fonts\Fraunces.ttf"
 DM = r"C:\Users\USER\Downloads\_hs_fonts\DMSans.ttf"
 
@@ -44,7 +45,7 @@ while tsize>40:
 center(120, TITLE, load(FR, tsize), GOLD)
 center(120+tsize+24, "Harmattan Sessions", load(DM, 40), CREAM)
 center(H-250, SOUND, load(DM, 34), GOLD)
-center(H-185, "Full track on Spotify  ↗", load(DM, 46), CREAM)
+center(H-185, CTA, load(DM, 46), CREAM)
 
 img.save(OUT, "PNG")
 print("SAVED", OUT)
