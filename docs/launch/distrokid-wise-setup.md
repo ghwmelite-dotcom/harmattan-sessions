@@ -37,22 +37,41 @@ DistroKid pays royalties out. The catch for Ghana:
 
 ---
 
-## PART C — First release (Labadi Sunset, June)
+## PART C — First release: Labadi Sunset · **RELEASE DATE FRI JUNE 13, 2026**
 
-Per `singles-plan.md`, single #1. Don't schedule until cover art is ready.
+Single #1. Both assets READY ✅.
 
-- [ ] **Master:** `tmp/suno-session-1/keepers/afro-lofi/01-afro-lofi-labadi-sunset-v1-EXT.wav` (−14.2 LUFS, ready)
-- [ ] **Cover:** distinct 3000×3000 from Ideogram (`single-cover-prompts.md` #1) — NOT the recolored placeholder
-- [ ] Title: `Labadi Sunset` · Artist: `Harmattan Sessions`
-- [ ] **Genre:** primary only — Afrobeat (or Electronic→Chill)
-- [ ] **Lyrics:** type `Instrumental`
+- [x] **Master:** `tmp/suno-session-1/keepers/afro-lofi/01-afro-lofi-labadi-sunset-v1-EXT.wav` (−14.2 LUFS, ready)
+- [x] **Cover:** `C:\Users\USER\Downloads\Harmattan Single Covers\01-labadi-sunset-3000.png` (3000×3000, done)
+- [ ] Title: `Labadi Sunset` · Release title: `Labadi Sunset` (single) · Artist: `Harmattan Sessions` (EXACT)
+- [ ] **Genre:** primary Afrobeat (2nd Electronic, or blank)
+- [ ] **Instrumental?:** Yes
 - [ ] **Explicit:** No
-- [ ] **Songwriter:** your legal name
-- [ ] **Release date:** ≥14 days out (gives Spotify editorial review window)
+- [ ] **Songwriter:** your legal name (first + last)
+- [ ] **Release date:** **Friday 13 June 2026** (≥14 days out → Spotify editorial pitch window open)
 - [ ] **Pre-save:** ENABLE
 - [ ] **Stores:** all (Spotify, Apple, Tidal, Amazon, YouTube Music, etc.)
 - [ ] Enable: **YouTube Content ID**, **Shazam**, **TikTok/IG licensing**
-- [ ] **AI disclosure** in songwriter/credits notes (see `distrokid-release-plan.md`): "Composition AI-assisted; mixing, mastering, curation & field recording by Ozzy Hodges, Accra."
+- [ ] **AI disclosure** in any songwriter/credits/notes field: "Composition AI-assisted; mixing, mastering, curation & field recording by [legal name], Accra."
+
+### After upload submits → claim profiles + pitch
+- [ ] Once release is "processing/live": claim **Spotify for Artists** + **Apple Music for Artists**
+- [ ] Pitch **Labadi Sunset** via Spotify for Artists (do it ASAP after submit — needs ~7+ days before Jun 13)
+
+**Spotify "Pitch a Song" — paste these:**
+- Genres: Afrobeats · Instrumental · Chill
+- Moods: Chill · Sunset · Focus
+- Styles: Instrumental · Acoustic · Smooth
+- Culture: African
+- Description (≤500 chars):
+```
+"Labadi Sunset" is an Afro-Lofi instrumental from Harmattan Sessions, an independent project rooted in Accra, Ghana. It blends palmwine-highlife guitar phrasing with warm sub-bass and brushed shakers, layered over original field recordings captured in Greater Accra. Built for golden-hour focus and study. Composition AI-assisted; mixing, mastering, curation and field recording by Ozzy Hodges. Independent release, 2026 — curated chill from West Africa.
+```
+
+### Release-day (Jun 13)
+- [ ] Grab Spotify URL → swap YouTube Short CTA "Full mix on YouTube" → "Full track on Spotify"
+- [ ] Add Spotify link to site footer (`siteConfig.ts` platforms → replace Spotify `#`)
+- [ ] Post the Labadi Sunset cover + Short across X/IG/TikTok with the streaming link
 
 ---
 
