@@ -1,8 +1,8 @@
 export const siteConfig = {
   tagline: 'The sound of African evenings',
-  email: 'hello@harmattansessions.com',
+  email: 'harmattansessions@gmail.com',
   platforms: [
-    { name: 'YouTube', url: '#' }, { name: 'Spotify', url: '#' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@HarmattanSessions' }, { name: 'Spotify', url: '#' },
     { name: 'Apple Music', url: '#' }, { name: 'Tidal', url: '#' }, { name: 'Bandcamp', url: '#' },
   ],
   social: [

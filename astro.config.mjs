@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import keystatic from '@keystatic/astro';
 
 export default defineConfig({
-  site: 'https://harmattansessions.com',
+  site: 'https://hs.ohwpstudios.org',
   output: 'static',
   adapter: cloudflare({ imageService: 'compile', prerenderEnvironment: 'node' }),
   integrations: [keystatic(), sitemap()],

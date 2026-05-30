@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /keystatic
-Sitemap: https://harmattansessions.com/sitemap-index.xml
+Sitemap: https://hs.ohwpstudios.org/sitemap-index.xml
