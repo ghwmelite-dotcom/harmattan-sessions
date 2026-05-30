@@ -37,7 +37,7 @@ DistroKid pays royalties out. The catch for Ghana:
 
 ---
 
-## PART C — First release: Labadi Sunset · **RELEASE DATE FRI JUNE 13, 2026**
+## PART C — First release: Labadi Sunset · **RELEASE DATE FRI JUNE 12, 2026**
 
 Single #1. Both assets READY ✅.
 
@@ -48,7 +48,7 @@ Single #1. Both assets READY ✅.
 - [ ] **Instrumental?:** Yes
 - [ ] **Explicit:** No
 - [ ] **Songwriter:** your legal name (first + last)
-- [ ] **Release date:** **Friday 13 June 2026** (≥14 days out → Spotify editorial pitch window open)
+- [ ] **Release date:** **Friday 12 June 2026** (≥14 days out → Spotify editorial pitch window open)
 - [ ] **Pre-save:** ENABLE
 - [ ] **Stores:** all (Spotify, Apple, Tidal, Amazon, YouTube Music, etc.)
 - [ ] Enable: **YouTube Content ID**, **Shazam**, **TikTok/IG licensing**
@@ -56,7 +56,7 @@ Single #1. Both assets READY ✅.
 
 ### After upload submits → claim profiles + pitch
 - [ ] Once release is "processing/live": claim **Spotify for Artists** + **Apple Music for Artists**
-- [ ] Pitch **Labadi Sunset** via Spotify for Artists (do it ASAP after submit — needs ~7+ days before Jun 13)
+- [ ] Pitch **Labadi Sunset** via Spotify for Artists (do it ASAP after submit — needs ~7+ days before Jun 12)
 
 **Spotify "Pitch a Song" — paste these:**
 - Genres: Afrobeats · Instrumental · Chill
@@ -68,7 +68,7 @@ Single #1. Both assets READY ✅.
 "Labadi Sunset" is an Afro-Lofi instrumental from Harmattan Sessions, an independent project rooted in Accra, Ghana. It blends palmwine-highlife guitar phrasing with warm sub-bass and brushed shakers, layered over original field recordings captured in Greater Accra. Built for golden-hour focus and study. Composition AI-assisted; mixing, mastering, curation and field recording by Ozzy Hodges. Independent release, 2026 — curated chill from West Africa.
 ```
 
-### Release-day (Jun 13)
+### Release-day (Jun 12)
 - [ ] Grab Spotify URL → swap YouTube Short CTA "Full mix on YouTube" → "Full track on Spotify"
 - [ ] Add Spotify link to site footer (`siteConfig.ts` platforms → replace Spotify `#`)
 - [ ] Post the Labadi Sunset cover + Short across X/IG/TikTok with the streaming link
