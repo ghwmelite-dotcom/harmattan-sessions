@@ -36,6 +36,29 @@ character, rotating settings, instantly identifiable across a catalog.
 Internal name only (Akan, "born on Wednesday"). Like Lofi Girl, she can stay
 unnamed in public marketing.
 
+> ⚠️ **Never call her "the lofi girl" or imply affiliation in public/marketing.**
+> "Lofi Girl" (ex-ChilledCow) is a trademarked, litigious brand. Akua is her own
+> character — Ghanaian, beaded locs, gold headphones, Accra scenes. Keep the
+> language clean so there's zero knockoff/trademark exposure. "Lofi Girl model"
+> is an internal reference only.
+
+---
+
+## Brand Identity System — Akua is the FACE, Sun Vinyl is the MARK
+
+Two assets, two jobs. They reinforce each other; they are **not** interchangeable.
+
+| | **Akua** (the character) | **Sun Vinyl** (the logo) |
+|---|---|---|
+| **Role** | Brand *face* — atmosphere, emotion, recognition | Brand *mark* — identity at any size |
+| **Use on** | YouTube banner, channel trailer, social headers, website hero, single covers, video scenes | Avatar / profile pic, watermark, favicon, merch stamp, anywhere small or single-color |
+| **Scales to 24px?** | No — becomes mush | Yes — that's the whole point |
+| **Source** | `public/visuals/stills/*-anchor-v1.png` + single covers | `public/favicon.svg` (gold vinyl-as-sun: dark disc, radial-gold ring `#F4C95D→#E8B04B→#C8842E`, dark hole, gold spindle) |
+
+**The rule:** large/hero format → lead with Akua, place the Sun Vinyl mark small (bottom-corner, ~10–12% opacity or solid at small scale). Small/functional format (avatar, favicon, watermark) → Sun Vinyl only. **Do NOT** try to make Akua the avatar/logo — a detailed character fails at small sizes and can't go single-colour.
+
+This mirrors how Lofi Girl actually works: the character carries the *scenes*; a simple mark/wordmark carries the *identity*.
+
 **Paste-able prompt block for any future generation:**
 
 - Young Ghanaian woman, late teens / early 20s
