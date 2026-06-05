@@ -1,6 +1,8 @@
 export const siteConfig = {
   tagline: 'The sound of African evenings',
   email: 'harmattansessions@gmail.com',
+  // HS Studios — the in-house studio that crafts the sessions' sound.
+  studioUrl: 'https://hs-studios.pages.dev',
   platforms: [
     { name: 'YouTube', url: 'https://www.youtube.com/@HarmattanSessions' }, { name: 'Spotify', url: '#' },
     { name: 'Apple Music', url: '#' }, { name: 'Tidal', url: '#' }, { name: 'Bandcamp', url: '#' },

@@ -28,7 +28,23 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:var(-
   display:grid;place-items:center;color:var(--gold);transition:border-color .2s;padding:0}
 .tgl:hover{border-color:var(--gold)}
 .tgl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* featured studio tab */
+.nav-studio{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;
+  color:var(--text-strong);padding:8px 14px;border-radius:999px;border:1px solid rgba(232,176,75,.5);
+  background:linear-gradient(120deg,var(--glow-2),transparent 65%);
+  transition:transform .15s ease,border-color .2s ease,box-shadow .25s ease}
+.nav-studio:hover{transform:translateY(-1px);border-color:var(--gold);box-shadow:0 6px 22px -8px var(--glow-1)}
+.nav-studio svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-studio .tag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--on-accent);
+  background:var(--gold);padding:2px 6px;border-radius:999px;line-height:1}
+.nav-studio::after{content:"";position:absolute;inset:-1px;border-radius:999px;pointer-events:none;
+  animation:studioPulse 3.4s ease-in-out infinite}
+@keyframes studioPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,176,75,.30)}50%{box-shadow:0 0 0 7px rgba(232,176,75,0)}}
+@media(max-width:520px){.nav-studio span{display:none}.nav-studio{padding:8px}}
+
 @media(max-width:760px){.nav-links{display:none}}
+@media(prefers-reduced-motion:reduce){.nav-studio::after{animation:none}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:120px 0 96px;
