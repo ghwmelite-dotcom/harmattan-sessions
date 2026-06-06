@@ -23,7 +23,7 @@ only the owner can actually enter and use it.
 |---|---|
 | How the studio is displayed | **Dedicated `/studio` landing page** (rich story) **+** a condensed **teaser band on the homepage** |
 | Audience / access | **Hybrid** — public showcase, gated entry. "Private beta" treatment. |
-| Crossing seamlessness | **Same-domain family** — move the studio to `studio.hs.ohwpstudios.org` |
+| Crossing seamlessness | **Same-domain family** — move the studio to `studio.ohwpstudios.org` |
 | Page depth | **Rich** — hero, genres, pipeline, release kit, CTA |
 | The "studio peek" visual | **Hand-built brand element**, not a live screenshot (avoids the Access auth wall; always on-brand) |
 
@@ -37,7 +37,7 @@ work; the studio-side work is configuration + a light brand pass.
 - Homepage teaser band linking into `/studio`.
 - A `studio-genres` content collection (single source of truth for genre data on the marketing side).
 - Nav + `siteConfig` updates.
-- HS Studios custom-domain cutover to `studio.hs.ohwpstudios.org`.
+- HS Studios custom-domain cutover to `studio.ohwpstudios.org`.
 - A brand-continuity pass on the HS Studios entry shell + a "back to Harmattan Sessions" link.
 
 ### Out of scope (YAGNI)
@@ -56,7 +56,7 @@ harmattan-sessions (Astro · this repo)            HS Studios (React/Vite + Hono
 ┌───────────────────────────────────────┐         ┌──────────────────────────────┐
 │ index.astro                           │         │ apps/web  (Pages project)    │
 │   Hero                                │         │   • custom domain →          │
-│   SoundsGrid                          │         │     studio.hs.ohwpstudios.org│
+│   SoundsGrid                          │         │     studio.ohwpstudios.org│
 │   ▶ StudioTeaser  ── links to ──┐     │         │   • brand tokens aligned     │
 │   MixesGrid                     │     │         │   • "← Harmattan Sessions"   │
 │   …                             │     │         │     back-link                │
@@ -135,7 +135,7 @@ clear job and is independently understandable.
 - **`src/components/Nav.astro`** — change the Studio link from `href={siteConfig.studioUrl}
   target="_blank"` to an internal `href="/studio"` (same tab). Keep the "New" tag and the
   waveform icon. Remove the `target`/`rel`/external aria wording.
-- **`src/siteConfig.ts`** — `studioUrl: 'https://studio.hs.ohwpstudios.org'`. Add a short comment
+- **`src/siteConfig.ts`** — `studioUrl: 'https://studio.ohwpstudios.org'`. Add a short comment
   that this is the canonical live-studio entry used by every CTA.
 - **`src/pages/index.astro`** — import and place `StudioTeaser`.
 
@@ -143,7 +143,7 @@ clear job and is independently understandable.
 
 ## 6. HS Studios side (cross-repo)
 
-1. **Custom domain.** Add `studio.hs.ohwpstudios.org` as a custom domain on the existing Cloudflare
+1. **Custom domain.** Add `studio.ohwpstudios.org` as a custom domain on the existing Cloudflare
    Pages project (Pages → Custom domains; CNAME via the `ohwpstudios.org` zone). Cloudflare Access
    policy must cover the new hostname so the gate still applies. *(Owner-run dashboard/DNS step;
    documented as an ops checklist item, not code.)*
@@ -184,6 +184,6 @@ clear job and is independently understandable.
   one click, never leaving the brand world.
 - `/studio` tells the complete story (genres, pipeline, release kit) and feels like a native part
   of the site.
-- Clicking **Enter the Studio** lands on `studio.hs.ohwpstudios.org` with matching brand and a way
+- Clicking **Enter the Studio** lands on `studio.ohwpstudios.org` with matching brand and a way
   back — the jump feels like moving rooms, not sites.
 - The owner (via Access) reaches a working studio; a visitor hits a tasteful gated entry.

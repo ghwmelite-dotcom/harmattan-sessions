@@ -4,7 +4,7 @@
 
 **Goal:** Display HS Studios on the Harmattan Sessions site as a rich `/studio` landing page plus a homepage teaser band, with a same-domain seamless crossing into the live studio.
 
-**Architecture:** All work in the Astro marketing repo (`harmattan-sessions`). A single typed data module (`src/data/studioGenres.ts`) is the source of truth for the six genres, imported by both the `/studio` page and the homepage teaser. Five new presentational Astro components compose the page; one teaser component slots into the homepage. Nav + `siteConfig` are updated so the "Studio" tab links in-site and every "Enter the Studio" CTA points at `studio.hs.ohwpstudios.org`. A separate appendix covers the cross-repo HS Studios custom-domain + brand cutover.
+**Architecture:** All work in the Astro marketing repo (`harmattan-sessions`). A single typed data module (`src/data/studioGenres.ts`) is the source of truth for the six genres, imported by both the `/studio` page and the homepage teaser. Five new presentational Astro components compose the page; one teaser component slots into the homepage. Nav + `siteConfig` are updated so the "Studio" tab links in-site and every "Enter the Studio" CTA points at `studio.ohwpstudios.org`. A separate appendix covers the cross-repo HS Studios custom-domain + brand cutover.
 
 **Tech Stack:** Astro 6 (static, Cloudflare adapter), scoped component styles over CSS-variable design tokens, Vitest for pure-module tests, `astro check` + `astro build` as the component/page verification gate.
 
@@ -151,7 +151,7 @@ import { siteConfig } from '../src/siteConfig';
 
 describe('siteConfig.studioUrl', () => {
   it('is the same-domain studio subdomain over https', () => {
-    expect(siteConfig.studioUrl).toBe('https://studio.hs.ohwpstudios.org');
+    expect(siteConfig.studioUrl).toBe('https://studio.ohwpstudios.org');
   });
 });
 ```
@@ -168,7 +168,7 @@ In `src/siteConfig.ts`, replace lines 4-5:
 ```ts
   // HS Studios — the in-house studio. Canonical live-studio entry; every "Enter the Studio"
   // CTA links here. Same-domain family for a seamless crossing from the marketing site.
-  studioUrl: 'https://studio.hs.ohwpstudios.org',
+  studioUrl: 'https://studio.ohwpstudios.org',
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
@@ -185,7 +185,7 @@ Expected: PASS.
 
 ```bash
 git add src/siteConfig.ts tests/siteConfig.test.ts
-git commit -m "feat(studio): point studioUrl at studio.hs.ohwpstudios.org
+git commit -m "feat(studio): point studioUrl at studio.ohwpstudios.org
 
 Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 ```
@@ -252,7 +252,7 @@ import { siteConfig } from '../siteConfig';
   </div>
 
   <div class="st-peek" aria-hidden="true">
-    <div class="peek-bar"><i></i><i></i><i></i><span class="peek-url">studio.hs.ohwpstudios.org</span></div>
+    <div class="peek-bar"><i></i><i></i><i></i><span class="peek-url">studio.ohwpstudios.org</span></div>
     <div class="peek-body">
       <div class="peek-side">
         <span class="gp act">Afrobeats</span><span class="gp">Amapiano</span>
@@ -551,7 +551,7 @@ import { siteConfig } from '../siteConfig';
       single-user room — entry is gated while it's in private sessions.</p>
     <a class="btn btn-primary" href={siteConfig.studioUrl}>Enter the Studio →</a>
     <span class="st-cross">⟢ Seamless hand-off — same brand, same domain family:
-      <b>studio.hs.ohwpstudios.org</b></span>
+      <b>studio.ohwpstudios.org</b></span>
   </div>
 </div></section>
 
@@ -676,7 +676,7 @@ const genres = getStudioGenres();
       </div>
     </div>
     <div class="st-band-peek" aria-hidden="true">
-      <div class="peek-bar"><i></i><i></i><i></i><span class="peek-url">studio.hs.ohwpstudios.org</span></div>
+      <div class="peek-bar"><i></i><i></i><i></i><span class="peek-url">studio.ohwpstudios.org</span></div>
       <div class="peek-body">
         <div class="peek-side"><span class="gp act">Afrobeats</span><span class="gp">Amapiano</span><span class="gp">Highlife</span></div>
         <div class="peek-main">
@@ -788,7 +788,7 @@ Expected: success; both `dist/studio/index.html` and `dist/index.html` exist.
 
 Run: `npm run preview` and open the printed URL. Verify:
 - `/` shows the teaser band between The Sounds and Mixes; both CTAs navigate to `/studio` (and `/studio#how`).
-- `/studio` renders all five sections; the nav "Studio" tab is the active route; "Enter the Studio" points to `studio.hs.ohwpstudios.org`.
+- `/studio` renders all five sections; the nav "Studio" tab is the active route; "Enter the Studio" points to `studio.ohwpstudios.org`.
 - Toggle the theme — both pages read correctly in light and dark.
 - Tab through both pages — focus rings show on every CTA; the studio peek is skipped by AT (`aria-hidden`).
 - Narrow the window to ~375px — hero, band, genre grid and steps all collapse to single column with no overflow.
@@ -812,10 +812,10 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 > ships without it; do this to make the crossing live and seamless.
 
 - [ ] **A1 — Custom domain.** In Cloudflare Pages → the HS Studios `apps/web` project → Custom
-  domains, add `studio.hs.ohwpstudios.org`. Confirm the CNAME is created in the `ohwpstudios.org`
+  domains, add `studio.ohwpstudios.org`. Confirm the CNAME is created in the `ohwpstudios.org`
   zone and the cert issues.
 - [ ] **A2 — Access policy.** In Cloudflare Zero Trust → Access, ensure the existing single-user
-  policy covers the new hostname `studio.hs.ohwpstudios.org` so entry stays gated.
+  policy covers the new hostname `studio.ohwpstudios.org` so entry stays gated.
 - [ ] **A3 — Brand continuity.** In `apps/web`, align the genre-picker / top-bar theme to the
   Harmattan tokens (warm dark, gold `#E8B04B` / terracotta `#C96E3F`, Fraunces + DM Sans) using the
   studio's existing CSS-variable theming, so the first paint after the jump matches the marketing site.
