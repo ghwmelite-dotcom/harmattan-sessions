@@ -3,11 +3,11 @@ import { getStudioGenres } from '../data/studioGenres';
 const genres = getStudioGenres();
 ---
 <section class="blk" id="genres"><div class="wrap">
-  <div class="sec-head">
+  <div class="sec-head" data-reveal>
     <div><span class="label">Six rooms, one studio</span><h2>The genre is the whole mechanism.</h2></div>
     <p>Each genre is pure data — its own tempo, signature, language mix and pipeline. The room themes itself to match.</p>
   </div>
-  <div class="st-genres">
+  <div class="st-genres" data-reveal-group>
     {genres.map((g) => (
       <article class="st-genre">
         <span class="st-path">{g.path}</span>

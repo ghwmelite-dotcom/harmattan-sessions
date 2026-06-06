@@ -3,7 +3,7 @@ import { getStudioGenres } from '../data/studioGenres';
 const genres = getStudioGenres();
 ---
 <section class="st-teaser-sec"><div class="wrap">
-  <div class="st-band">
+  <div class="st-band" data-reveal>
     <div class="st-band-copy">
       <span class="st-pill">◆ HS Studios — in-house&nbsp;·&nbsp;<b>Private beta</b></span>
       <h2>Pick a genre. <span class="it">Walk away with a song.</span></h2>
@@ -19,7 +19,7 @@ const genres = getStudioGenres();
         <a class="btn btn-ghost" href="/studio#how">See how it works</a>
       </div>
     </div>
-    <div class="st-band-peek" aria-hidden="true">
+    <div class="st-band-peek" aria-hidden="true" transition:name="studio-portal">
       <div class="peek-bar"><i></i><i></i><i></i><span class="peek-url">studio.ohwpstudios.org</span></div>
       <div class="peek-body">
         <div class="peek-side"><span class="gp act">Afrobeats</span><span class="gp">Amapiano</span><span class="gp">Highlife</span></div>

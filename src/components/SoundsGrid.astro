@@ -4,11 +4,11 @@ import SoundCard from './SoundCard.astro';
 const sounds = (await getCollection('sounds')).sort((a, b) => a.data.order - b.data.order);
 ---
 <section class="blk" id="sounds"><div class="wrap">
-  <div class="sec-head">
+  <div class="sec-head" data-reveal>
     <div><span class="label">The catalogue</span><h2>Eight sounds, one evening.</h2></div>
     <p>Every track carries at least one genuine West African element as its backbone — never decoration.</p>
   </div>
-  <div class="sounds">
+  <div class="sounds" data-reveal-group>
     {sounds.map((s) => <SoundCard name={s.data.name} bpmRange={s.data.bpmRange} mood={s.data.mood} chipFrom={s.data.chipFrom} chipTo={s.data.chipTo} />)}
   </div>
 </div></section>

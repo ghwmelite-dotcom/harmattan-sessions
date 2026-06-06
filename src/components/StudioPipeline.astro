@@ -7,12 +7,12 @@ const steps = [
 ];
 ---
 <section class="blk" id="how"><div class="wrap">
-  <div class="sec-head">
+  <div class="sec-head" data-reveal>
     <div><span class="label">How it works</span><h2>Four passes. Hooks first.</h2></div>
     <p>Afrobeats is hook-led, so the chorus is written before the verses. Every pass is re-runnable —
       regenerate verses without losing an approved hook.</p>
   </div>
-  <ol class="st-steps">
+  <ol class="st-steps" data-reveal-group>
     {steps.map((s, i) => (
       <li class="st-step">
         <span class="st-n">{s.n}</span>
@@ -22,7 +22,7 @@ const steps = [
       </li>
     ))}
   </ol>
-  <p class="st-note">🎚️ <b>Afro-lofi</b> takes the instrumental path instead — texture sliders
+  <p class="st-note" data-reveal>🎚️ <b>Afro-lofi</b> takes the instrumental path instead — texture sliders
     (vinyl crackle, tape warmth, kalimba, rain) drive a single fast composition pass into the style prompt.</p>
 </div></section>
 
