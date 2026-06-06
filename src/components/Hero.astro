@@ -1,5 +1,12 @@
 ---
-const nowPlaying = 'Labadi Sunset · Afro-Lofi';
+import { fetchUploads, pickNowPlaying, NOW_PLAYING_DEFAULT } from '../lib/youtube';
+import { siteConfig } from '../siteConfig';
+let nowPlaying = NOW_PLAYING_DEFAULT;
+try {
+  nowPlaying = pickNowPlaying(await fetchUploads(fetch, siteConfig.youtubeChannelId));
+} catch {
+  nowPlaying = NOW_PLAYING_DEFAULT;
+}
 ---
 <header class="hero"><div class="wrap hero-in">
   <span class="label">The sound of African evenings</span>
@@ -9,5 +16,5 @@ const nowPlaying = 'Labadi Sunset · Afro-Lofi';
     <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
     <button class="btn btn-primary" type="submit">Join the Dispatch</button>
   </form>
-  <div class="nowplay"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Now playing —&nbsp;<strong>{nowPlaying}</strong></div>
+  <div class="nowplay"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Now playing —&nbsp;<strong data-now-playing>{nowPlaying}</strong></div>
 </div></header>
