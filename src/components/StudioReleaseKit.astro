@@ -1,0 +1,43 @@
+---
+const outputs = [
+  { ic: '♫', label: 'Full lyrics', body: 'section-tagged, ad-libbed, beat-fit' },
+  { ic: '✎', label: 'Style prompts', body: 'Suno style box + MusicGPT sentence, character-counted' },
+  { ic: '▦', label: 'Cover art', body: 'Flux-1 Schnell, stored and ready' },
+  { ic: '#', label: 'Metadata', body: 'title, hashtags, description to ship it' },
+];
+---
+<section class="blk" id="kit"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="label">What you walk away with</span><h2>A complete release kit.</h2></div>
+    <p>Everything you need to ship, generated end-to-end on Cloudflare's free tier.</p>
+  </div>
+  <div class="st-kit">
+    <ul class="st-kit-card">
+      {outputs.map((o) => (
+        <li class="st-kit-row">
+          <span class="st-ic" aria-hidden="true">{o.ic}</span>
+          <span><b>{o.label}</b> — {o.body}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="st-cover" aria-hidden="true"><span class="st-cover-txt">Labadi Sunset</span></div>
+  </div>
+</div></section>
+
+<style>
+  .st-kit{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:center}
+  @media(max-width:760px){.st-kit{grid-template-columns:1fr}}
+  .st-kit-card{list-style:none;padding:22px;border-radius:var(--r-lg);border:1px solid var(--line);
+    background:linear-gradient(160deg,var(--surface) 0%,var(--bg-elev) 100%)}
+  .st-kit-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);
+    font-size:14px;color:var(--text)}
+  .st-kit-row:last-child{border-bottom:0}
+  .st-kit-row b{color:var(--text-strong)}
+  .st-ic{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+    color:var(--gold);background:rgba(232,176,75,.12);border:1px solid rgba(232,176,75,.3);font-size:14px}
+  .st-cover{aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--line);overflow:hidden;
+    display:flex;align-items:flex-end;padding:20px;
+    background:radial-gradient(120% 120% at 20% 10%,var(--terracotta),var(--bg-elev) 72%)}
+  .st-cover-txt{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--text-strong);
+    text-shadow:0 2px 20px rgba(0,0,0,.55)}
+</style>
