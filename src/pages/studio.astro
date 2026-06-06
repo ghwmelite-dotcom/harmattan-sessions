@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import StudioHero from '../components/StudioHero.astro';
+import StudioGenres from '../components/StudioGenres.astro';
+import StudioPipeline from '../components/StudioPipeline.astro';
+import StudioReleaseKit from '../components/StudioReleaseKit.astro';
+import StudioCTA from '../components/StudioCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="HS Studios — pick a genre, walk away with a song"
+  description="The in-house studio behind Harmattan Sessions. Pick a genre — Afrobeats, Amapiano, Dancehall, Alté, Highlife or Afro-lofi — and walk away with a full release kit: lyrics, style prompts, cover art and metadata."
+>
+  <Nav />
+  <main id="main">
+    <StudioHero />
+    <StudioGenres />
+    <StudioPipeline />
+    <StudioReleaseKit />
+    <StudioCTA />
+  </main>
+  <Footer />
+</Base>
