@@ -25,4 +25,4 @@ async function hydrate(): Promise<void> {
   }
 }
 
-hydrate();
+document.addEventListener('astro:page-load', hydrate);
