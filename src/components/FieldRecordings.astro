@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.order - b.data.order);
 ---
 <section class="blk" id="field"><div class="wrap">
-  <div class="sec-head"><div><span class="label">The moat</span><h2>Recorded on location, in Ghana.</h2></div>
+  <div class="sec-head" data-reveal><div><span class="label">The moat</span><h2>Recorded on location, in Ghana.</h2></div>
     <p>The layer no remote channel can fake. Captured at 44.1kHz and woven under every mix.</p></div>
-  <div class="field">
+  <div class="field" data-reveal-group>
     {recs.map((r) => <span class="loc"><span class="dot"></span>{r.data.location} — {r.data.description}</span>)}
   </div>
 </div></section>
