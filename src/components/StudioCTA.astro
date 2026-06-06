@@ -1,0 +1,26 @@
+---
+import { siteConfig } from '../siteConfig';
+---
+<section class="blk st-final-blk"><div class="wrap">
+  <div class="st-final">
+    <span class="st-pill">◆ Private beta — built by Ozzy</span>
+    <h2>Step into the studio.</h2>
+    <p>It runs entirely on Cloudflare's free tier, with a live budget meter. Right now it's a
+      single-user room — entry is gated while it's in private sessions.</p>
+    <a class="btn btn-primary" href={siteConfig.studioUrl}>Enter the Studio →</a>
+    <span class="st-cross">⟢ Seamless hand-off — same brand, same domain family:
+      <b>studio.ohwpstudios.org</b></span>
+  </div>
+</div></section>
+
+<style>
+  .st-final-blk{background:radial-gradient(80% 130% at 50% 0,var(--glow-1),transparent 60%)}
+  .st-final{text-align:center;max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .st-final h2{font-size:clamp(28px,4.4vw,42px)}
+  .st-final p{color:var(--text-dim);font-size:15px}
+  .st-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;
+    padding:6px 14px;border-radius:999px;color:var(--gold);
+    border:1px solid rgba(232,176,75,.42);background:rgba(232,176,75,.07)}
+  .st-cross{font-size:12.5px;color:var(--text-dim);display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .st-cross b{color:var(--text)}
+</style>
