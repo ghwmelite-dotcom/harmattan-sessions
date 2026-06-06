@@ -1,0 +1,5 @@
+---
+import { cardHTML, type CardVideo } from '../lib/videoCard';
+const { video } = Astro.props as { video: CardVideo };
+---
+<Fragment set:html={cardHTML(video)} />
