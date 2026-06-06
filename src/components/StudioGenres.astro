@@ -1,0 +1,37 @@
+---
+import { getStudioGenres } from '../data/studioGenres';
+const genres = getStudioGenres();
+---
+<section class="blk" id="genres"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="label">Six rooms, one studio</span><h2>The genre is the whole mechanism.</h2></div>
+    <p>Each genre is pure data — its own tempo, signature, language mix and pipeline. The room themes itself to match.</p>
+  </div>
+  <div class="st-genres">
+    {genres.map((g) => (
+      <article class="st-genre">
+        <span class="st-path">{g.path}</span>
+        <span class="st-dot" style={`background:${g.accent}`}></span>
+        <h3>{g.name}</h3>
+        <div class="st-tempo">{g.tempo}</div>
+        <p class="st-sig">{g.signature}</p>
+      </article>
+    ))}
+  </div>
+</div></section>
+
+<style>
+  .st-genres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:820px){.st-genres{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.st-genres{grid-template-columns:1fr}}
+  .st-genre{position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-lg);padding:20px;transition:transform .18s ease,border-color .18s ease}
+  .st-genre:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .st-dot{display:block;width:34px;height:34px;border-radius:10px;margin-bottom:14px}
+  .st-genre h3{font-size:19px;margin-bottom:3px}
+  .st-tempo{font-size:12.5px;color:var(--gold);font-weight:600;letter-spacing:.04em}
+  .st-sig{font-size:13px;color:var(--text-dim);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .st-path{position:absolute;top:16px;right:16px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--text-dim);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+  @media(prefers-reduced-motion:reduce){.st-genre:hover{transform:none}}
+</style>
