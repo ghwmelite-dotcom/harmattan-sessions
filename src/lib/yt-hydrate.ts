@@ -17,11 +17,11 @@ async function hydrate(): Promise<void> {
       const limit = Number(grid.getAttribute('data-yt-limit')) || videos.length;
       grid.innerHTML = videos.slice(0, limit).map((v) => cardHTML(v)).join('');
     });
-  }
-  if (data?.nowPlaying) {
-    document.querySelectorAll<HTMLElement>('[data-now-playing]').forEach((el) => {
-      el.textContent = data.nowPlaying;
-    });
+    if (data.nowPlaying) {
+      document.querySelectorAll<HTMLElement>('[data-now-playing]').forEach((el) => {
+        el.textContent = data.nowPlaying;
+      });
+    }
   }
 }
 
