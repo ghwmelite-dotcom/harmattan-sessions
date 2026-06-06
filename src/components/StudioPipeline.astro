@@ -1,0 +1,42 @@
+---
+const steps = [
+  { n: '①', title: 'Concept', body: 'Theme, emotional arc, language mix, title candidates' },
+  { n: '②', title: 'Hook',    body: 'Write the chorus first — chantable, call-and-response, ad-libs' },
+  { n: '③', title: 'Verses',  body: 'Build around the locked hook, keep the pocket, weave the languages' },
+  { n: '④', title: 'Polish',  body: 'Section tags, ad-libs, syllable-to-beat fit, final title' },
+];
+---
+<section class="blk" id="how"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="label">How it works</span><h2>Four passes. Hooks first.</h2></div>
+    <p>Afrobeats is hook-led, so the chorus is written before the verses. Every pass is re-runnable —
+      regenerate verses without losing an approved hook.</p>
+  </div>
+  <ol class="st-steps">
+    {steps.map((s, i) => (
+      <li class="st-step">
+        <span class="st-n">{s.n}</span>
+        <h3>{s.title}</h3>
+        <p>{s.body}</p>
+        {i < steps.length - 1 && <span class="st-arrow" aria-hidden="true">→</span>}
+      </li>
+    ))}
+  </ol>
+  <p class="st-note">🎚️ <b>Afro-lofi</b> takes the instrumental path instead — texture sliders
+    (vinyl crackle, tape warmth, kalimba, rain) drive a single fast composition pass into the style prompt.</p>
+</div></section>
+
+<style>
+  .st-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0}
+  @media(max-width:820px){.st-steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:440px){.st-steps{grid-template-columns:1fr}}
+  .st-step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
+  .st-n{font-family:'Fraunces',serif;font-size:30px;color:var(--gold);font-weight:600;line-height:1}
+  .st-step h3{font-size:16px;margin:8px 0 6px}
+  .st-step p{font-size:13px;color:var(--text-dim)}
+  .st-arrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--terracotta);font-size:18px;z-index:2}
+  @media(max-width:820px){.st-arrow{display:none}}
+  .st-note{margin-top:16px;font-size:13.5px;color:var(--text-dim);background:var(--surface);
+    border:1px dashed var(--line);border-radius:var(--r-md);padding:14px 18px}
+  .st-note b{color:var(--text)}
+</style>
