@@ -48,7 +48,7 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:var(-
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:120px 0 96px;
-  background:radial-gradient(90% 70% at 78% 8%, var(--glow-1) 0%, transparent 55%),
+  background:radial-gradient(90% 70% at var(--sun-x) var(--sun-y), var(--glow-1) 0%, transparent 55%),
     radial-gradient(70% 60% at 12% 100%, var(--glow-2) 0%, transparent 60%), var(--bg)}
 .hero::after{content:"";position:absolute;inset:0;opacity:var(--grain-op);pointer-events:none;
   background-image:radial-gradient(var(--grain) 1px,transparent 1px);background-size:3px 3px}

@@ -1,0 +1,51 @@
+---
+// Time-of-day phase chip. Cycles Auto -> Dawn -> Midday -> Dusk -> Night -> Auto, persists the
+// choice, and (in Auto) re-resolves the phase every ~5 min. Mirrors the ThemeToggle pattern, so it
+// survives view-transition navigations via the persisted <nav>.
+---
+<button class="tod-chip" id="hs-tod-chip" type="button" aria-label="Time of day — Auto">
+  <span class="tod-dot" aria-hidden="true"></span><span class="tod-label">Auto</span>
+</button>
+<style>
+  .tod-chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--gold);
+    border:1px solid rgba(232,176,75,.4);background:rgba(232,176,75,.07);padding:7px 12px;border-radius:999px;
+    cursor:pointer;font-family:inherit;line-height:1;transition:border-color .2s,background .2s}
+  .tod-chip:hover{border-color:var(--gold)}
+  .tod-dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#ffd9a0,var(--terracotta))}
+  @media(max-width:520px){.tod-chip .tod-label{display:none}.tod-chip{padding:7px}}
+</style>
+<script>
+  import { resolveTod, nextSetting, type TodSetting } from '../lib/timeOfDay';
+  const root = document.documentElement;
+  const chip = document.getElementById('hs-tod-chip');
+  if (chip) {
+    const label = chip.querySelector('.tod-label') as HTMLElement;
+    const LABELS: Record<TodSetting, string> = { auto: 'Auto', dawn: 'Dawn', day: 'Midday', dusk: 'Dusk', night: 'Night' };
+    let timer: number | undefined;
+
+    function read(): TodSetting {
+      const s = localStorage.getItem('hs-tod');
+      return (s === 'dawn' || s === 'day' || s === 'dusk' || s === 'night' || s === 'auto') ? s : 'auto';
+    }
+    function applyTod(setting: TodSetting): void {
+      root.setAttribute('data-tod', resolveTod(setting === 'auto' ? null : setting, new Date().getHours()));
+    }
+    function paint(setting: TodSetting): void {
+      label.textContent = LABELS[setting];
+      chip!.setAttribute('aria-label', `Time of day — ${LABELS[setting]}`);
+    }
+    function manageTimer(setting: TodSetting): void {
+      if (timer) { clearInterval(timer); timer = undefined; }
+      if (setting === 'auto') timer = window.setInterval(() => applyTod('auto'), 300000);
+    }
+    function set(setting: TodSetting): void {
+      try { localStorage.setItem('hs-tod', setting); } catch {}
+      applyTod(setting); paint(setting); manageTimer(setting);
+    }
+
+    chip.addEventListener('click', () => set(nextSetting(read())));
+    const cur = read(); paint(cur); manageTimer(cur);
+    // enable cross-fade for subsequent changes only (initial phase was set before paint)
+    requestAnimationFrame(() => root.classList.add('tod-transition'));
+  }
+</script>
