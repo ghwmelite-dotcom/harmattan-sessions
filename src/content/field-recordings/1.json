@@ -1,1 +1,1 @@
-{ "location": "Labadi Beach", "description": "dusk surf", "order": 1 }
+{ "location": "Labadi Beach", "description": "dusk surf", "order": 1, "x": 50, "y": 80, "tone": "surf" }

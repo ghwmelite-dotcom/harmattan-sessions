@@ -1,1 +1,1 @@
-{ "location": "Jamestown", "description": "evening street", "order": 4 }
+{ "location": "Jamestown", "description": "evening street", "order": 4, "x": 41, "y": 79, "tone": "street" }
