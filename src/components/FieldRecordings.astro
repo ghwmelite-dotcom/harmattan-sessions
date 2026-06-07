@@ -8,10 +8,8 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
     <p>The layer no remote channel can fake — captured at 44.1kHz and woven under every mix. <b>Tap a place to hear it.</b></p>
   </div>
   <div id="hs-fieldmap" class="fieldmap" data-reveal>
-    <svg class="fr-land" viewBox="0 0 300 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <path class="fr-fill" d="M62 72 Q105 58 150 64 Q200 56 236 66 Q244 130 234 198 Q232 240 268 298 Q250 312 180 312 Q118 316 60 300 Q52 210 56 140 Q56 98 62 72 Z"/>
-      <path class="fr-lake" d="M205 135 Q198 165 203 195 Q190 205 188 225 Q200 240 210 258 Q222 248 218 228 Q230 212 220 192 Q228 165 214 142 Q210 134 205 135 Z"/>
-      <path class="fr-coast" d="M60 300 Q118 316 180 312 Q250 312 268 298"/>
+    <svg class="fr-land" viewBox="0 0 300 427" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path class="fr-fill" d="M195.6 6.0 L206.6 7.2 L209.6 10.3 L218.8 11.5 L219.4 20.1 L217.0 22.5 L216.3 31.1 L212.7 34.7 L212.1 39.6 L220.0 43.3 L229.2 54.3 L235.9 54.9 L238.4 61.0 L243.2 62.9 L240.8 74.5 L243.2 76.3 L243.9 80.6 L241.4 83.0 L242.0 87.3 L240.2 89.8 L239.0 97.7 L242.0 111.2 L237.7 111.8 L237.1 113.6 L248.8 114.8 L249.4 117.9 L252.4 120.3 L252.4 125.8 L251.8 130.1 L250.0 132.0 L250.6 136.2 L247.5 139.9 L246.3 144.8 L250.0 151.5 L250.6 157.0 L248.8 161.3 L242.6 165.0 L247.5 171.7 L257.9 179.0 L263.4 188.8 L263.4 194.3 L256.1 199.2 L257.3 231.6 L254.9 232.9 L254.3 237.1 L250.0 240.2 L251.2 247.5 L252.4 248.8 L257.9 248.1 L259.1 251.2 L259.1 258.5 L256.1 266.5 L256.1 275.7 L253.0 278.1 L251.8 284.8 L258.5 291.6 L258.5 297.7 L264.6 301.3 L264.6 308.1 L275.0 316.6 L280.5 316.6 L283.0 322.7 L287.3 327.0 L294.0 328.9 L294.0 334.4 L290.9 335.6 L284.2 342.3 L281.8 351.5 L278.7 354.5 L267.1 356.4 L237.1 355.1 L228.0 358.2 L220.6 364.3 L212.7 368.0 L193.7 373.5 L186.4 380.8 L175.4 383.9 L166.2 391.2 L150.9 391.8 L138.7 398.6 L133.2 398.6 L114.8 403.5 L105.7 412.6 L95.9 415.7 L92.2 420.0 L80.6 421.2 L79.4 418.7 L65.9 410.2 L53.1 407.7 L43.9 404.1 L29.8 402.8 L15.2 398.6 L15.8 394.3 L26.8 394.9 L30.5 392.4 L36.6 391.8 L36.0 380.2 L39.6 378.4 L37.8 375.3 L36.6 366.2 L32.9 364.3 L25.6 365.5 L24.3 360.0 L20.7 359.4 L21.3 349.0 L17.0 340.5 L14.6 327.6 L10.9 324.0 L6.0 301.9 L6.0 297.1 L8.4 295.2 L7.2 291.6 L7.8 284.2 L15.8 270.8 L20.1 268.9 L20.7 265.3 L23.7 261.6 L26.2 237.7 L32.9 221.2 L36.0 218.8 L36.0 213.9 L38.4 213.3 L41.5 209.6 L47.0 207.8 L48.2 206.6 L47.0 204.7 L47.6 199.2 L54.3 196.8 L47.6 162.5 L47.6 154.0 L45.7 152.8 L43.9 147.2 L37.2 144.8 L38.4 136.2 L42.7 130.7 L40.9 125.2 L43.3 122.2 L43.3 117.9 L37.8 111.8 L38.4 105.1 L36.0 102.6 L36.0 97.7 L39.0 93.4 L36.0 75.1 L36.0 68.4 L37.2 67.1 L32.9 63.5 L34.1 56.1 L31.1 53.1 L27.4 44.5 L28.0 34.1 L31.7 25.0 L34.1 22.5 L33.5 16.4 L100.2 17.0 L124.0 14.6 L129.5 16.4 L140.5 17.0 L144.8 15.8 L168.6 16.4 L173.5 17.0 L176.0 19.5 L177.8 17.0 L182.1 17.0 L185.2 15.2 L188.2 9.7 L193.1 10.9 L195.6 6.6 Z"/>
     </svg>
     {recs.map((r) => (
       <button
@@ -38,16 +36,12 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
 </div></section>
 
 <style>
-  .fieldmap{position:relative;width:100%;max-width:430px;aspect-ratio:5/6;margin:34px auto 0}
+  .fieldmap{position:relative;width:100%;max-width:400px;aspect-ratio:300/427;margin:34px auto 0}
   .fr-land{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
   .fr-fill{fill:#1c150e;stroke:rgba(232,176,75,.42);stroke-width:1.4;
     filter:drop-shadow(0 9px 20px rgba(0,0,0,.34))}
   :global(html[data-theme='light']) .fr-fill{fill:#e7d2a6;stroke:rgba(168,80,42,.55);
     filter:drop-shadow(0 8px 16px rgba(120,80,30,.12))}
-  .fr-lake{fill:rgba(74,104,110,.5);stroke:rgba(232,176,75,.14);stroke-width:.6}
-  :global(html[data-theme='light']) .fr-lake{fill:rgba(120,150,150,.5);stroke:rgba(168,80,42,.16)}
-  .fr-coast{fill:none;stroke:var(--gold);stroke-width:2.2;opacity:.6;stroke-linecap:round}
-  :global(html[data-theme='light']) .fr-coast{stroke:#a8502a;opacity:.7}
 
   .fr-pin{position:absolute;transform:translate(-50%,-50%);background:none;border:0;padding:0;cursor:pointer;
     display:grid;place-items:center;z-index:2}
