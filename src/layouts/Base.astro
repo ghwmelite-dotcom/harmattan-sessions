@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Player from '../components/Player.astro';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/motion.css';
@@ -26,6 +27,7 @@ const { title, description } = Astro.props;
     </svg>
     <a href="#main" class="skip-link">Skip to content</a>
     <slot />
+    <Player />
     <script>
   function bindNewsletter() {
     document.querySelectorAll('form.hs-subscribe').forEach((form) => {

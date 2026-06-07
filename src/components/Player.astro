@@ -1,0 +1,76 @@
+---
+import { siteConfig } from '../siteConfig';
+const { src, label } = siteConfig.audio;
+---
+<div id="hs-player" class="hs-player" role="region" aria-label="Ambient player" transition:persist>
+  <audio id="hs-audio" preload="none" loop>
+    <source src={src} type="audio/mpeg" />
+  </audio>
+
+  <button class="hs-listen" type="button" aria-label="Listen — play the ambient sound">
+    <span class="hs-pulse" aria-hidden="true"></span><span>Listen</span>
+  </button>
+
+  <div class="hs-bar">
+    <button class="hs-play" type="button" aria-label="Play" aria-pressed="false">
+      <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+    </button>
+    <span class="hs-vinyl" aria-hidden="true"></span>
+    <span class="hs-label">{label}</span>
+    <canvas class="hs-wave" width="260" height="34" aria-hidden="true"></canvas>
+    <label class="hs-volwrap" aria-label="Volume">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="hs-volic"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg>
+      <input class="hs-vol" type="range" min="0" max="1" step="0.01" aria-label="Volume" />
+    </label>
+    <button class="hs-close" type="button" aria-label="Close player">✕</button>
+  </div>
+</div>
+
+<style>
+  /* Listen pill (collapsed default) */
+  .hs-listen{position:fixed;left:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:8px;
+    font-family:inherit;font-size:13px;font-weight:600;color:var(--gold);cursor:pointer;
+    padding:0 16px;min-height:44px;border-radius:999px;border:1px solid rgba(232,176,75,.45);
+    background:rgba(14,11,8,.78);backdrop-filter:blur(12px);box-shadow:0 8px 26px -10px rgba(0,0,0,.6)}
+  .hs-listen:hover{border-color:var(--gold)}
+  .hs-pulse{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle,#ffd9a0,var(--terracotta));
+    box-shadow:0 0 0 0 rgba(232,176,75,.5);animation:hsPulse 2.4s ease-in-out infinite}
+  @keyframes hsPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,176,75,.5)}50%{box-shadow:0 0 0 7px rgba(232,176,75,0)}}
+
+  /* Slim glass bar (expanded) */
+  .hs-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;gap:16px;
+    padding:11px 18px;background:rgba(14,11,8,.82);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+  .hs-player.hs-open .hs-listen{display:none}
+  .hs-player.hs-open .hs-bar{display:flex}
+
+  .hs-play{width:44px;height:44px;border-radius:50%;border:0;background:var(--gold);color:#231803;cursor:pointer;
+    display:grid;place-items:center;flex-shrink:0}
+  .hs-play svg{width:16px;height:16px;fill:#231803}
+  .ic-pause{display:none}
+  .hs-player.hs-playing .ic-play{display:none}
+  .hs-player.hs-playing .ic-pause{display:block}
+
+  .hs-vinyl{width:28px;height:28px;border-radius:50%;flex-shrink:0;
+    background:radial-gradient(circle at 36% 30%,var(--gold),var(--terracotta) 60%,#2a1604);position:relative}
+  .hs-vinyl::after{content:"";position:absolute;inset:42%;background:var(--bg);border-radius:50%}
+  .hs-player.hs-playing .hs-vinyl{animation:hsSpin 4s linear infinite}
+  @keyframes hsSpin{to{transform:rotate(360deg)}}
+
+  .hs-label{font-size:12.5px;color:var(--text-strong);white-space:nowrap;flex-shrink:0;letter-spacing:.01em}
+  .hs-wave{flex:1;height:34px;min-width:60px}
+  .hs-volwrap{display:flex;align-items:center;gap:7px;color:var(--text-dim);flex-shrink:0}
+  .hs-volic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+  .hs-vol{width:84px;accent-color:var(--gold);cursor:pointer}
+  .hs-close{background:none;border:0;color:var(--text-dim);font-size:15px;cursor:pointer;flex-shrink:0;
+    min-width:44px;min-height:44px;display:grid;place-items:center;padding:0}
+  .hs-close:hover{color:var(--text)}
+
+  @media(max-width:640px){.hs-label,.hs-volwrap{display:none}}
+  @media(prefers-reduced-motion:reduce){
+    .hs-player.hs-playing .hs-vinyl{animation:none}
+    .hs-pulse{animation:none}
+  }
+</style>
+
+<script>import '../lib/player.ts';</script>

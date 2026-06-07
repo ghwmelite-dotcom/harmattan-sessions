@@ -9,4 +9,9 @@ describe('siteConfig.studioUrl', () => {
   it('exposes the YouTube channel id for feed sync', () => {
     expect(siteConfig.youtubeChannelId).toBe('UCPvNI44wmYxnCxVk_BJ1wvg');
   });
+
+  it('exposes the ambient audio source and label', () => {
+    expect(siteConfig.audio.src).toBe('/audio/generational-rhythm-vol-i.mp3');
+    expect(siteConfig.audio.label).toBe('Generational_Rhythm_Vol_I');
+  });
 });
