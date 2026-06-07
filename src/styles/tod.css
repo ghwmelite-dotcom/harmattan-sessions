@@ -1,0 +1,28 @@
+/* Time-of-day "evening engine" — re-points the hero atmosphere variables per phase.
+   @property registration lets the gradient colors/positions cross-fade. The transition lives on
+   html.tod-transition (added by JS after first paint) so the initial phase is instant (no flash). */
+
+@property --glow-1 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --glow-2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --grain-op { syntax: '<number>'; inherits: true; initial-value: 0.04; }
+@property --sun-x { syntax: '<percentage>'; inherits: true; initial-value: 78%; }
+@property --sun-y { syntax: '<percentage>'; inherits: true; initial-value: 8%; }
+
+/* dark theme (default) per-phase atmosphere */
+[data-tod="dawn"]  { --glow-1: rgba(232,176,75,.22); --glow-2: rgba(201,110,63,.08); --grain-op: .035; --sun-x: 16%; --sun-y: 86%; }
+[data-tod="day"]   { --glow-1: rgba(244,232,214,.13); --glow-2: rgba(232,176,75,.08); --grain-op: .030; --sun-x: 50%; --sun-y: 4%;  }
+[data-tod="dusk"]  { --glow-1: rgba(201,110,63,.30); --glow-2: rgba(232,176,75,.14); --grain-op: .045; --sun-x: 82%; --sun-y: 80%; }
+[data-tod="night"] { --glow-1: rgba(201,110,63,.16); --glow-2: rgba(232,176,75,.06); --grain-op: .070; --sun-x: 80%; --sun-y: 94%; }
+
+/* light theme — toned down glow/grain (sun position inherits from the rules above) */
+[data-theme="light"][data-tod="dawn"]  { --glow-1: rgba(232,176,75,.18); --glow-2: rgba(201,110,63,.10); --grain-op: .040; }
+[data-theme="light"][data-tod="day"]   { --glow-1: rgba(232,176,75,.10); --glow-2: rgba(201,110,63,.06); --grain-op: .035; }
+[data-theme="light"][data-tod="dusk"]  { --glow-1: rgba(201,110,63,.20); --glow-2: rgba(232,176,75,.16); --grain-op: .045; }
+[data-theme="light"][data-tod="night"] { --glow-1: rgba(201,110,63,.12); --glow-2: rgba(232,176,75,.10); --grain-op: .050; }
+
+/* smooth cross-fade for later changes only (class added after first paint); off under reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html.tod-transition {
+    transition: --glow-1 .8s ease, --glow-2 .8s ease, --grain-op .8s ease, --sun-x .8s ease, --sun-y .8s ease;
+  }
+}
