@@ -8,9 +8,10 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
     <p>The layer no remote channel can fake — captured at 44.1kHz and woven under every mix. <b>Tap a place to hear it.</b></p>
   </div>
   <div id="hs-fieldmap" class="fieldmap" data-reveal>
-    <svg class="fr-land" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-      <path class="fr-fill" d="M60 50 L300 44 Q352 70 338 130 L330 200 Q318 238 270 232 L150 236 Q70 232 56 175 Q46 110 60 50 Z"/>
-      <path class="fr-coast" d="M150 236 L270 232 Q318 238 330 200"/>
+    <svg class="fr-land" viewBox="0 0 300 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path class="fr-fill" d="M62 72 Q105 58 150 64 Q200 56 236 66 Q244 130 234 198 Q232 240 268 298 Q250 312 180 312 Q118 316 60 300 Q52 210 56 140 Q56 98 62 72 Z"/>
+      <path class="fr-lake" d="M205 135 Q198 165 203 195 Q190 205 188 225 Q200 240 210 258 Q222 248 218 228 Q230 212 220 192 Q228 165 214 142 Q210 134 205 135 Z"/>
+      <path class="fr-coast" d="M60 300 Q118 316 180 312 Q250 312 268 298"/>
     </svg>
     {recs.map((r) => (
       <button
@@ -37,25 +38,32 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
 </div></section>
 
 <style>
-  .fieldmap{position:relative;width:100%;max-width:600px;aspect-ratio:4/3;margin-top:28px}
-  .fr-land{position:absolute;inset:0;width:100%;height:100%}
-  .fr-fill{fill:rgba(28,23,20,.7);stroke:rgba(232,176,75,.30);stroke-width:1.2}
-  .fr-coast{fill:none;stroke:var(--gold);stroke-width:1.6;opacity:.45}
+  .fieldmap{position:relative;width:100%;max-width:430px;aspect-ratio:5/6;margin:34px auto 0}
+  .fr-land{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .fr-fill{fill:#1c150e;stroke:rgba(232,176,75,.42);stroke-width:1.4;
+    filter:drop-shadow(0 9px 20px rgba(0,0,0,.34))}
+  :global(html[data-theme='light']) .fr-fill{fill:#e7d2a6;stroke:rgba(168,80,42,.55);
+    filter:drop-shadow(0 8px 16px rgba(120,80,30,.12))}
+  .fr-lake{fill:rgba(74,104,110,.5);stroke:rgba(232,176,75,.14);stroke-width:.6}
+  :global(html[data-theme='light']) .fr-lake{fill:rgba(120,150,150,.5);stroke:rgba(168,80,42,.16)}
+  .fr-coast{fill:none;stroke:var(--gold);stroke-width:2.2;opacity:.6;stroke-linecap:round}
+  :global(html[data-theme='light']) .fr-coast{stroke:#a8502a;opacity:.7}
 
   .fr-pin{position:absolute;transform:translate(-50%,-50%);background:none;border:0;padding:0;cursor:pointer;
     display:grid;place-items:center;z-index:2}
-  .fr-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);
+  .fr-dot{width:15px;height:15px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);
     box-shadow:0 0 0 0 rgba(232,176,75,.5);animation:frPing 2.6s ease-out infinite}
   @keyframes frPing{0%{box-shadow:0 0 0 0 rgba(232,176,75,.5)}70%,100%{box-shadow:0 0 0 13px rgba(232,176,75,0)}}
   .fr-pin.is-playing .fr-dot{background:var(--terracotta);box-shadow:0 0 0 4px rgba(201,110,63,.35)}
   .fr-pinlabel{position:absolute;top:16px;font-size:11px;color:var(--text-strong);white-space:nowrap;
-    background:rgba(14,11,8,.7);padding:2px 7px;border-radius:99px;opacity:0;transition:opacity .15s;pointer-events:none}
+    background:var(--surface);border:1px solid var(--line);padding:2px 8px;border-radius:99px;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;transition:opacity .15s;pointer-events:none}
   .fr-pin:hover .fr-pinlabel,.fr-pin:focus-visible .fr-pinlabel,.fr-pin.is-playing .fr-pinlabel{opacity:1}
   .fr-pin:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:50%}
 
   .fr-pop{position:absolute;transform:translate(-50%,-118%);z-index:3;min-width:140px;pointer-events:none;
-    background:rgba(20,16,11,.94);border:1px solid rgba(232,176,75,.4);border-radius:10px;padding:9px 12px;
-    backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;
+    backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
   .fr-pop-name{display:block;font-family:'Fraunces',serif;font-size:13px;color:var(--text-strong);font-weight:600}
   .fr-pop-desc{display:block;font-size:11px;color:var(--text-dim);margin-bottom:5px}
   .fr-wave{display:block;width:100%;height:26px}
