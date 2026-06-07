@@ -313,7 +313,7 @@ Covers the **Volta Sleep drop (Fri Jun 12)** and the **Aburi Climb drop (Fri Jun
 ### 🎒 Quick-reference: the voice cheat-sheet
 - **Lead with a place + a time of day.** Sensory first line, always.
 - **Lowercase, short, calm.** No hype, no "let's dive in," no motivational-poster lines.
-- **0–1 hashtag on X** (save your 10-tag stack for YouTube/TikTok — it reads as spam here).
+- **Hashtags: one tag, only where it earns its place** (save your 10-tag YouTube/TikTok stack — on X it reads as spam). The scheme: **`#studytwt`** on community days (the Sat "talk to me" + the poll), **`#lofi`** on press-play + drop days, and **none** on place/craft/quote-card days. Always one tag, on its own line at the end. *(Already baked into the daily kit.)*
 - **Upload video natively**; links go in a *reply* or line 2, never buried in the main drop tweet.
 - **Name real places** (Labadi, Volta, Aburi, Bortianor) and mood words (golden, drift, stillness, harmattan).
 - **AI stays quiet** — lead with *place & authenticity*, never "AI-made."
