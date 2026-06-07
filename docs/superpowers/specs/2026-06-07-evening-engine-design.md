@@ -35,6 +35,13 @@ field-recordings map — are separate specs).
 - The hero consuming a sun-position variable so the light source moves across the day.
 - A nav phase-chip control (cycle + persist + Auto).
 
+> **Note (intended, documented post-build):** because the atmosphere variables (`--glow-1`,
+> `--glow-2`, `--grain-op`) are inherited on `<html>`, any component that reads them — notably the
+> `/studio` hero/teaser/CTA glows — also shifts color/grain per phase. This is intentional
+> *site-wide* warmth tracking; the **home hero is the primary mover** (it alone re-points the
+> `--sun-x`/`--sun-y` sun position). Verified to read well and keep AA contrast on `/studio` across
+> phases. No action needed — recorded so it's a conscious decision, not an accident.
+
 ### Out of scope (YAGNI)
 - Recoloring the whole page palette per phase (hero atmosphere only).
 - Geolocation / real sunrise-sunset times (visitor's device clock hour is enough).

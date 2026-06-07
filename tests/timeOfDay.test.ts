@@ -46,4 +46,15 @@ describe('todInitScript', () => {
     expect(todInitScript).toContain('data-tod');
     expect(todInitScript).toContain('hs-tod');
   });
+
+  it('inline hour thresholds match phaseForHour for every hour (no drift)', () => {
+    // Extract the inline `function(h){…}` phase expression and evaluate it against phaseForHour,
+    // so the duplicated thresholds in the render-blocking string can never silently diverge.
+    const m = todInitScript.match(/function\(h\)\{return ([\s\S]+?)\}\)/);
+    expect(m).not.toBeNull();
+    const inlinePhase = new Function('h', `return ${m![1]}`) as (h: number) => string;
+    for (let h = 0; h < 24; h++) {
+      expect(inlinePhase(h)).toBe(phaseForHour(h));
+    }
+  });
 });
