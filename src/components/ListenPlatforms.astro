@@ -4,6 +4,10 @@ import { siteConfig } from '../siteConfig';
 <section class="blk" id="listen"><div class="wrap">
   <div class="sec-head" data-reveal><div><span class="label">Everywhere you listen</span><h2>Find the sessions.</h2></div></div>
   <div class="platforms" data-reveal-group>
-    {siteConfig.platforms.map((p) => <a class="plat" href={p.url}>{p.name}</a>)}
+    {siteConfig.platforms.map((p) => (
+      p.name === 'YouTube'
+        ? <a class="plat" href={`${p.url}?sub_confirmation=1`} target="_blank" rel="noopener" aria-label="Subscribe to Harmattan Sessions on YouTube (opens in a new tab)">{p.name}</a>
+        : <a class="plat" href={p.url}>{p.name}</a>
+    ))}
   </div>
 </div></section>
