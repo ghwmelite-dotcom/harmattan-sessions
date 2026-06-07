@@ -49,10 +49,12 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
     box-shadow:0 0 0 0 rgba(232,176,75,.5);animation:frPing 2.6s ease-out infinite}
   @keyframes frPing{0%{box-shadow:0 0 0 0 rgba(232,176,75,.5)}70%,100%{box-shadow:0 0 0 13px rgba(232,176,75,0)}}
   .fr-pin.is-playing .fr-dot{background:var(--terracotta);box-shadow:0 0 0 4px rgba(201,110,63,.35)}
-  .fr-pinlabel{position:absolute;top:16px;font-size:11px;color:var(--text-strong);white-space:nowrap;
+  .fr-pinlabel{position:absolute;top:15px;font-size:10.5px;letter-spacing:.01em;color:var(--text-strong);white-space:nowrap;
     background:var(--surface);border:1px solid var(--line);padding:2px 8px;border-radius:99px;
-    box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;transition:opacity .15s;pointer-events:none}
-  .fr-pin:hover .fr-pinlabel,.fr-pin:focus-visible .fr-pinlabel,.fr-pin.is-playing .fr-pinlabel{opacity:1}
+    box-shadow:0 3px 10px rgba(0,0,0,.16);opacity:1;transition:border-color .15s,box-shadow .15s;pointer-events:none}
+  .fr-pin:hover,.fr-pin:focus-visible,.fr-pin.is-playing{z-index:4}
+  .fr-pin:hover .fr-pinlabel,.fr-pin:focus-visible .fr-pinlabel,.fr-pin.is-playing .fr-pinlabel{
+    border-color:var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.26)}
   .fr-pin:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:50%}
 
   .fr-pop{position:absolute;transform:translate(-50%,-118%);z-index:3;min-width:140px;pointer-events:none;
