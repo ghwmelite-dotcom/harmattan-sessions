@@ -28,11 +28,10 @@ const { src, label } = siteConfig.audio;
 </div>
 
 <style>
-  .hs-player{}
   /* Listen pill (collapsed default) */
   .hs-listen{position:fixed;left:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:8px;
     font-family:inherit;font-size:13px;font-weight:600;color:var(--gold);cursor:pointer;
-    padding:9px 15px;border-radius:999px;border:1px solid rgba(232,176,75,.45);
+    padding:0 16px;min-height:44px;border-radius:999px;border:1px solid rgba(232,176,75,.45);
     background:rgba(14,11,8,.78);backdrop-filter:blur(12px);box-shadow:0 8px 26px -10px rgba(0,0,0,.6)}
   .hs-listen:hover{border-color:var(--gold)}
   .hs-pulse{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle,#ffd9a0,var(--terracotta));
@@ -45,7 +44,7 @@ const { src, label } = siteConfig.audio;
   .hs-player.hs-open .hs-listen{display:none}
   .hs-player.hs-open .hs-bar{display:flex}
 
-  .hs-play{width:38px;height:38px;border-radius:50%;border:0;background:var(--gold);color:#231803;cursor:pointer;
+  .hs-play{width:44px;height:44px;border-radius:50%;border:0;background:var(--gold);color:#231803;cursor:pointer;
     display:grid;place-items:center;flex-shrink:0}
   .hs-play svg{width:16px;height:16px;fill:#231803}
   .ic-pause{display:none}
@@ -63,7 +62,8 @@ const { src, label } = siteConfig.audio;
   .hs-volwrap{display:flex;align-items:center;gap:7px;color:var(--text-dim);flex-shrink:0}
   .hs-volic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
   .hs-vol{width:84px;accent-color:var(--gold);cursor:pointer}
-  .hs-close{background:none;border:0;color:var(--text-dim);font-size:15px;cursor:pointer;flex-shrink:0;padding:4px}
+  .hs-close{background:none;border:0;color:var(--text-dim);font-size:15px;cursor:pointer;flex-shrink:0;
+    min-width:44px;min-height:44px;display:grid;place-items:center;padding:0}
   .hs-close:hover{color:var(--text)}
 
   @media(max-width:640px){.hs-label,.hs-volwrap{display:none}}
