@@ -53,7 +53,7 @@ const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.ord
   .fr-pin:hover .fr-pinlabel,.fr-pin:focus-visible .fr-pinlabel,.fr-pin.is-playing .fr-pinlabel{opacity:1}
   .fr-pin:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:50%}
 
-  .fr-pop{position:absolute;transform:translate(-50%,-118%);z-index:3;min-width:140px;
+  .fr-pop{position:absolute;transform:translate(-50%,-118%);z-index:3;min-width:140px;pointer-events:none;
     background:rgba(20,16,11,.94);border:1px solid rgba(232,176,75,.4);border-radius:10px;padding:9px 12px;
     backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
   .fr-pop-name{display:block;font-family:'Fraunces',serif;font-size:13px;color:var(--text-strong);font-weight:600}
