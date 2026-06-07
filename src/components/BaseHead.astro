@@ -1,5 +1,6 @@
 ---
 import { themeInitScript } from '../lib/theme-init';
+import { todInitScript } from '../lib/timeOfDay';
 import { ClientRouter } from 'astro:transitions';
 interface Props { title: string; description: string; image?: string; }
 const { title, description, image = '/og-image.svg' } = Astro.props;
@@ -22,6 +23,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <script is:inline set:html={themeInitScript}></script>
+<script is:inline set:html={todInitScript}></script>
 <script is:inline type="application/ld+json" set:html={JSON.stringify({
   "@context":"https://schema.org","@type":"MusicGroup","name":"Harmattan Sessions",
   "genre":["Afrobeat","Lo-fi","Ambient","Highlife"],"foundingLocation":"Accra, Ghana",
