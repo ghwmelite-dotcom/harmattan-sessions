@@ -3,9 +3,64 @@ import { getCollection } from 'astro:content';
 const recs = (await getCollection('field-recordings')).sort((a, b) => a.data.order - b.data.order);
 ---
 <section class="blk" id="field"><div class="wrap">
-  <div class="sec-head" data-reveal><div><span class="label">The moat</span><h2>Recorded on location, in Ghana.</h2></div>
-    <p>The layer no remote channel can fake. Captured at 44.1kHz and woven under every mix.</p></div>
-  <div class="field" data-reveal-group>
-    {recs.map((r) => <span class="loc"><span class="dot"></span>{r.data.location} — {r.data.description}</span>)}
+  <div class="sec-head" data-reveal>
+    <div><span class="label">The moat</span><h2>Recorded on location, in Ghana.</h2></div>
+    <p>The layer no remote channel can fake — captured at 44.1kHz and woven under every mix. <b>Tap a place to hear it.</b></p>
+  </div>
+  <div id="hs-fieldmap" class="fieldmap" data-reveal>
+    <svg class="fr-land" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+      <path class="fr-fill" d="M60 50 L300 44 Q352 70 338 130 L330 200 Q318 238 270 232 L150 236 Q70 232 56 175 Q46 110 60 50 Z"/>
+      <path class="fr-coast" d="M150 236 L270 232 Q318 238 330 200"/>
+    </svg>
+    {recs.map((r) => (
+      <button
+        class="fr-pin"
+        type="button"
+        style={`left:${r.data.x}%;top:${r.data.y}%`}
+        data-tone={r.data.tone}
+        data-name={r.data.location}
+        data-desc={r.data.description}
+        data-audio={r.data.audio}
+        aria-label={`${r.data.location} — ${r.data.description} — play sound`}
+        aria-pressed="false"
+      >
+        <span class="fr-dot" aria-hidden="true"></span>
+        <span class="fr-pinlabel">{r.data.location}</span>
+      </button>
+    ))}
+    <div class="fr-pop" hidden>
+      <span class="fr-pop-name"></span>
+      <span class="fr-pop-desc"></span>
+      <canvas class="fr-wave" width="200" height="26" aria-hidden="true"></canvas>
+    </div>
   </div>
 </div></section>
+
+<style>
+  .fieldmap{position:relative;width:100%;max-width:600px;aspect-ratio:4/3;margin-top:28px}
+  .fr-land{position:absolute;inset:0;width:100%;height:100%}
+  .fr-fill{fill:rgba(28,23,20,.7);stroke:rgba(232,176,75,.30);stroke-width:1.2}
+  .fr-coast{fill:none;stroke:var(--gold);stroke-width:1.6;opacity:.45}
+
+  .fr-pin{position:absolute;transform:translate(-50%,-50%);background:none;border:0;padding:0;cursor:pointer;
+    display:grid;place-items:center;z-index:2}
+  .fr-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 0 0 rgba(232,176,75,.5);animation:frPing 2.6s ease-out infinite}
+  @keyframes frPing{0%{box-shadow:0 0 0 0 rgba(232,176,75,.5)}70%,100%{box-shadow:0 0 0 13px rgba(232,176,75,0)}}
+  .fr-pin.is-playing .fr-dot{background:var(--terracotta);box-shadow:0 0 0 4px rgba(201,110,63,.35)}
+  .fr-pinlabel{position:absolute;top:16px;font-size:11px;color:var(--text-strong);white-space:nowrap;
+    background:rgba(14,11,8,.7);padding:2px 7px;border-radius:99px;opacity:0;transition:opacity .15s;pointer-events:none}
+  .fr-pin:hover .fr-pinlabel,.fr-pin:focus-visible .fr-pinlabel,.fr-pin.is-playing .fr-pinlabel{opacity:1}
+  .fr-pin:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:50%}
+
+  .fr-pop{position:absolute;transform:translate(-50%,-118%);z-index:3;min-width:140px;pointer-events:none;
+    background:rgba(20,16,11,.94);border:1px solid rgba(232,176,75,.4);border-radius:10px;padding:9px 12px;
+    backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .fr-pop-name{display:block;font-family:'Fraunces',serif;font-size:13px;color:var(--text-strong);font-weight:600}
+  .fr-pop-desc{display:block;font-size:11px;color:var(--text-dim);margin-bottom:5px}
+  .fr-wave{display:block;width:100%;height:26px}
+
+  @media(prefers-reduced-motion:reduce){.fr-dot{animation:none}}
+</style>
+
+<script>import '../lib/fieldMap.ts';</script>

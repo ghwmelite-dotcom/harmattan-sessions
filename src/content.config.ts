@@ -12,7 +12,12 @@ const sounds = defineCollection({
 
 const fieldRecordings = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/field-recordings' }),
-  schema: z.object({ location: z.string(), description: z.string(), order: z.number() }),
+  schema: z.object({
+    location: z.string(), description: z.string(), order: z.number(),
+    x: z.number(), y: z.number(),
+    tone: z.enum(['surf', 'hum', 'wind', 'street', 'rain']),
+    audio: z.string().optional(),
+  }),
 });
 
 export const collections = { sounds, 'field-recordings': fieldRecordings };
